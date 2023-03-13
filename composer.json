@@ -1,0 +1,22 @@
+{
+  "name": "wtframework/sql",
+  "description": "What the Framework?! SQL",
+  "license": "proprietary",
+  "require": {
+    "php": "^8.2",
+    "wtframework/enums": "dev-main"
+  },
+  "autoload": {
+    "psr-4": {
+      "WTFramework\\SQL\\": "src/"
+    }
+  },
+  "require-dev": {
+    "pestphp/pest": "^1.22"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": false
+    }
+  }
+}
