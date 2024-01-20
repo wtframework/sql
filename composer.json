@@ -1,0 +1,21 @@
+{
+  "name": "wtframework/sql",
+  "description": "What the Framework?! SQL",
+  "license": "MIT",
+  "require": {
+    "php": "^8.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "WTFramework\\SQL\\": "src/"
+    }
+  },
+  "require-dev": {
+    "pestphp/pest": "^2.30"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}
