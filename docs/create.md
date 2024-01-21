@@ -26,7 +26,7 @@ $stmt->column(SQL::column('c1')->int());
 ```
 
 ## Primary key
-Use the `primaryKey` to set the primary key.
+Use the `primaryKey` method to set the primary key.
 ```php
 $stmt->primaryKey('c1');
 ```
@@ -37,7 +37,7 @@ $stmt->primaryKey(['c1', 'c2']);
 ```
 
 ## Unique keys
-Use the `unique` to add a unique key.
+Use the `unique` method to add a unique key.
 ```php
 $stmt->unique('c1');
 ```

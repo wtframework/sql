@@ -28,7 +28,7 @@ $partition->nodeGroup($node_group);
 ```
 
 ## Subpartitions
-Use the `subpartition` method to add subpartition. A [`Subpartition`](services/subpartition.md) service class can be passed, providing a fluent interface for generating subpartitions.
+Use the `subpartition` method to add subpartition. A [`Subpartition`](subpartition.md) service class can be passed, providing a fluent interface for generating subpartitions.
 ```php
 $partition->subpartition(SQL::subpartition('p0'));
 ```
