@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use WTFramework\SQL\Grammar;
+use WTFramework\SQL\Services\Subquery;
 use WTFramework\SQL\Simple\Statements\Select;
 use WTFramework\SQL\Statement;
 
@@ -49,5 +50,16 @@ it('can select', function ()
     ->fetchRows(10)
   )
   ->toBe("SELECT * ORDER BY c1 OFFSET 5 ROWS FETCH NEXT 10 ROWS ONLY");
+
+});
+
+it('can convert to subquery', function ()
+{
+
+  expect($subquery = (new Select)->toSubquery())
+  ->toBeInstanceOf(Subquery::class);
+
+  expect((string) $subquery)
+  ->toBe("(SELECT *)");
 
 });

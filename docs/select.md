@@ -49,11 +49,7 @@ $stmt->column(['c2' => 'c1']);
 \
 A [`Subquery`](services/subquery.md) service class can also be passed, providing a fluent interface for generating subqueries.
 ```php
-$subquery = SQL::subquery(
-  SQL::select()
-  ->from('t1')
-  ->column('COUNT(*)')
-);
+$subquery = SQL::subquery("SELECT COUNT(*) FROM t1");
 
 $stmt = SQL::select()
 ->from('t1')
@@ -518,6 +514,15 @@ You may also pass the variables as an array.
 $stmt->setStatement([
   'max_statement_time' => 1000,
 ]);
+```
+
+## To Subquery
+Use the `toSubquery` method to convert the `SELECT` statement builder into a [`Subquery`](services/subquery.md) service class.
+```php
+$subquery = SQL::select()
+->column('COUNT(*)')
+->from('t1')
+->toSubquery();
 ```
 
 ## When

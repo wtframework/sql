@@ -112,7 +112,7 @@ class Predicate implements HasBindings
 
     if ($expression instanceof Select)
     {
-      $expression = new Subquery($expression);
+      $expression = $expression->toSubquery();
     }
 
     return $expression;

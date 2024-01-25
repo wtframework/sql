@@ -18,6 +18,7 @@ use WTFramework\SQL\Traits\OffsetRows;
 use WTFramework\SQL\Traits\OrderBy;
 use WTFramework\SQL\Traits\SetOperation;
 use WTFramework\SQL\Traits\Top;
+use WTFramework\SQL\Traits\ToSubquery;
 use WTFramework\SQL\Traits\Where;
 
 class Select extends Statement
@@ -36,6 +37,7 @@ class Select extends Statement
   use OrderBy;
   use SetOperation;
   use Top;
+  use ToSubquery;
   use Where;
 
   protected function toArray(): array
