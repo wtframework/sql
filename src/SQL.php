@@ -86,7 +86,7 @@ abstract class SQL extends SimpleSQL
 
   public static function column(string $name): Column
   {
-    return (new Column($name));
+    return (new Column($name))->use(static::grammar());
   }
 
   public static function constraint(string $name = ''): Constraint
