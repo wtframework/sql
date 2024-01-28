@@ -12,7 +12,13 @@ class Raw implements HasBindings
 
   use Bind;
 
-  public function __construct(public readonly string $string) {}
+  public function __construct(
+    public readonly string $string,
+    string|int|array $bindings = []
+  )
+  {
+    $this->bindings = (array) $bindings;
+  }
 
   public function __toString(): string
   {

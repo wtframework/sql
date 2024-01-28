@@ -57,9 +57,12 @@ abstract class SQL
     return (new Raw('?'))->bind($value);
   }
 
-  public static function raw(string $string): Raw
+  public static function raw(
+    string $string,
+    string|int|array $bindings = []
+  ): Raw
   {
-    return new Raw($string);
+    return new Raw($string, $bindings);
   }
 
   public static function subquery(string|HasBindings $stmt): Subquery

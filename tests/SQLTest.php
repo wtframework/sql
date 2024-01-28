@@ -228,6 +228,17 @@ it('can get raw sql', function ()
 
 });
 
+it('can get raw SQL with bindings', function ()
+{
+
+  expect((string) $raw = SQL::raw('(?, ?, ?)', ['a', 'b', 'c']))
+  ->toBe('(?, ?, ?)');
+
+  expect($raw->bindings())
+  ->toBe(['a', 'b', 'c']);
+
+});
+
 it('can get subpartition', function ()
 {
 
