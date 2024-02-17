@@ -7,12 +7,14 @@ namespace WTFramework\SQL\Services;
 use Closure;
 use WTFramework\SQL\Interfaces\HasBindings;
 use WTFramework\SQL\Traits\Bind;
+use WTFramework\SQL\Traits\Macroable;
 use WTFramework\SQL\Traits\On as TraitsOn;
 
 class On implements HasBindings
 {
 
   use Bind;
+  use Macroable;
   use TraitsOn;
 
   public function __construct(

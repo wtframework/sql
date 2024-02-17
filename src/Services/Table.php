@@ -11,6 +11,7 @@ use WTFramework\SQL\Traits\Column;
 use WTFramework\SQL\Traits\ForSystemTime;
 use WTFramework\SQL\Traits\IndexedBy;
 use WTFramework\SQL\Traits\IndexHint;
+use WTFramework\SQL\Traits\Macroable;
 use WTFramework\SQL\Traits\Only;
 use WTFramework\SQL\Traits\TablePartition;
 
@@ -23,6 +24,7 @@ class Table implements HasBindings
   use ForSystemTime;
   use IndexedBy;
   use IndexHint;
+  use Macroable;
   use Only;
   use TablePartition;
 

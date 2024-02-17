@@ -15,11 +15,13 @@ use WTFramework\SQL\Services\Raw;
 use WTFramework\SQL\Services\Subquery;
 use WTFramework\SQL\Services\Table;
 use WTFramework\SQL\Services\Upsert;
+use WTFramework\SQL\Traits\Macroable;
 use WTFramework\SQL\Traits\StaticUseGrammar;
 
 abstract class SQL
 {
 
+  use Macroable;
   use StaticUseGrammar;
 
   public static function delete(): Delete

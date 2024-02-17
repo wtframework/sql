@@ -25,6 +25,7 @@ use WTFramework\SQL\Traits\IncludeColumn;
 use WTFramework\SQL\Traits\IndexName;
 use WTFramework\SQL\Traits\IndexType;
 use WTFramework\SQL\Traits\KeyBlockSize;
+use WTFramework\SQL\Traits\Macroable;
 use WTFramework\SQL\Traits\NoInherit;
 use WTFramework\SQL\Traits\NotValid;
 use WTFramework\SQL\Traits\NullsDistinct;
@@ -61,6 +62,7 @@ class Constraint implements HasBindings
   use IndexName;
   use IndexType;
   use KeyBlockSize;
+  use Macroable;
   use NoInherit;
   use NotValid;
   use NullsDistinct;

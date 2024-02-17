@@ -10,6 +10,7 @@ use WTFramework\SQL\Traits\Comment;
 use WTFramework\SQL\Traits\DataDirectory;
 use WTFramework\SQL\Traits\Engine;
 use WTFramework\SQL\Traits\IndexDirectory;
+use WTFramework\SQL\Traits\Macroable;
 use WTFramework\SQL\Traits\MaxRows;
 use WTFramework\SQL\Traits\MinRows;
 use WTFramework\SQL\Traits\NodeGroup;
@@ -25,6 +26,7 @@ class Partition implements HasBindings
   use DataDirectory;
   use Engine;
   use IndexDirectory;
+  use Macroable;
   use MaxRows;
   use MinRows;
   use NodeGroup;

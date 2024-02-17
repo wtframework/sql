@@ -6,6 +6,7 @@ namespace WTFramework\SQL;
 
 use WTFramework\SQL\Interfaces\HasBindings;
 use WTFramework\SQL\Traits\Bind;
+use WTFramework\SQL\Traits\Macroable;
 use WTFramework\SQL\Traits\UseGrammar;
 use WTFramework\SQL\Traits\When;
 
@@ -13,6 +14,7 @@ abstract class Statement implements HasBindings
 {
 
   use Bind;
+  use Macroable;
   use UseGrammar;
   use When;
 

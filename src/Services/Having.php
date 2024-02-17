@@ -8,11 +8,13 @@ use Closure;
 use WTFramework\SQL\Interfaces\HasBindings;
 use WTFramework\SQL\Traits\Bind;
 use WTFramework\SQL\Traits\Having as TraitsHaving;
+use WTFramework\SQL\Traits\Macroable;
 
 class Having implements HasBindings
 {
 
   use Bind;
+  use Macroable;
   use TraitsHaving;
 
   public function __construct(

@@ -9,6 +9,7 @@ use WTFramework\SQL\Traits\Bind;
 use WTFramework\SQL\Traits\Column;
 use WTFramework\SQL\Traits\Cycle;
 use WTFramework\SQL\Traits\CycleRestrict;
+use WTFramework\SQL\Traits\Macroable;
 use WTFramework\SQL\Traits\Materialized;
 use WTFramework\SQL\Traits\Search;
 
@@ -19,6 +20,7 @@ class CTE implements HasBindings
   use Column;
   use Cycle;
   use CycleRestrict;
+  use Macroable;
   use Materialized;
   use Search;
 

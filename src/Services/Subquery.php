@@ -13,6 +13,7 @@ use WTFramework\SQL\Traits\Column;
 use WTFramework\SQL\Traits\Exists;
 use WTFramework\SQL\Traits\ForSystemTime;
 use WTFramework\SQL\Traits\Lateral;
+use WTFramework\SQL\Traits\Macroable;
 
 class Subquery implements HasBindings
 {
@@ -25,6 +26,7 @@ class Subquery implements HasBindings
   use Exists;
   use ForSystemTime;
   use Lateral;
+  use Macroable;
 
   public function __construct(public readonly string|HasBindings $stmt) {}
 

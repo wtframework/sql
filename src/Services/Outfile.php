@@ -7,6 +7,7 @@ namespace WTFramework\SQL\Services;
 use WTFramework\SQL\Traits\CharacterSet;
 use WTFramework\SQL\Traits\Fields;
 use WTFramework\SQL\Traits\Lines;
+use WTFramework\SQL\Traits\Macroable;
 
 class Outfile
 {
@@ -14,6 +15,7 @@ class Outfile
   use CharacterSet;
   use Fields;
   use Lines;
+  use Macroable;
 
   public function __construct(public readonly string $path) {}
 

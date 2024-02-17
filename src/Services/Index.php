@@ -15,6 +15,7 @@ use WTFramework\SQL\Traits\IfNotExists;
 use WTFramework\SQL\Traits\Ignored;
 use WTFramework\SQL\Traits\IndexType;
 use WTFramework\SQL\Traits\KeyBlockSize;
+use WTFramework\SQL\Traits\Macroable;
 use WTFramework\SQL\Traits\SecondaryEngineAttribute;
 use WTFramework\SQL\Traits\Spatial;
 use WTFramework\SQL\Traits\Visibility;
@@ -33,6 +34,7 @@ class Index implements HasBindings
   use Ignored;
   use IndexType;
   use KeyBlockSize;
+  use Macroable;
   use SecondaryEngineAttribute;
   use Spatial;
   use Visibility;

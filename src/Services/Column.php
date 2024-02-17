@@ -25,6 +25,7 @@ use WTFramework\SQL\Traits\Format;
 use WTFramework\SQL\Traits\GeneratedAlwaysAs;
 use WTFramework\SQL\Traits\IfExists;
 use WTFramework\SQL\Traits\IfNotExists;
+use WTFramework\SQL\Traits\Macroable;
 use WTFramework\SQL\Traits\NoInherit;
 use WTFramework\SQL\Traits\NotNull;
 use WTFramework\SQL\Traits\NullsDistinct;
@@ -69,6 +70,7 @@ class Column implements HasBindings
   use GeneratedAlwaysAs;
   use IfExists;
   use IfNotExists;
+  use Macroable;
   use NoInherit;
   use NotNull;
   use NullsDistinct;

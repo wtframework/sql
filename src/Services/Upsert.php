@@ -7,6 +7,7 @@ namespace WTFramework\SQL\Services;
 use WTFramework\SQL\Interfaces\HasBindings;
 use WTFramework\SQL\Traits\Bind;
 use WTFramework\SQL\Traits\Column;
+use WTFramework\SQL\Traits\Macroable;
 use WTFramework\SQL\Traits\OnConstraint;
 use WTFramework\SQL\Traits\Set;
 use WTFramework\SQL\Traits\Where;
@@ -17,6 +18,7 @@ class Upsert implements HasBindings
 
   use Bind;
   use Column;
+  use Macroable;
   use OnConstraint;
   use Set;
   use Where;
