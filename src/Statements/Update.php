@@ -4,25 +4,49 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Statements;
 
-use WTFramework\SQL\Simple\Statements\Update as SimpleUpdate;
+use WTFramework\SQL\Statement;
 use WTFramework\SQL\Traits\Explain;
 use WTFramework\SQL\Traits\ForPortionOf;
+use WTFramework\SQL\Traits\From;
 use WTFramework\SQL\Traits\IfElse;
+use WTFramework\SQL\Traits\Ignore;
+use WTFramework\SQL\Traits\Join;
+use WTFramework\SQL\Traits\Limit;
 use WTFramework\SQL\Traits\LowPriority;
+use WTFramework\SQL\Traits\Offset;
+use WTFramework\SQL\Traits\OrderBy;
+use WTFramework\SQL\Traits\OrOnConflict;
+use WTFramework\SQL\Traits\OrReplace;
 use WTFramework\SQL\Traits\Returning;
+use WTFramework\SQL\Traits\Set;
 use WTFramework\SQL\Traits\SetStatement;
+use WTFramework\SQL\Traits\Table;
+use WTFramework\SQL\Traits\Top;
+use WTFramework\SQL\Traits\Where;
 use WTFramework\SQL\Traits\WhereCurrentOf;
 use WTFramework\SQL\Traits\With;
 
-class Update extends SimpleUpdate
+class Update extends Statement
 {
 
   use Explain;
   use ForPortionOf;
+  use From;
   use IfElse;
+  use Ignore;
+  use Join;
+  use Limit;
   use LowPriority;
+  use Offset;
+  use OrderBy;
+  use OrOnConflict;
+  use OrReplace;
   use Returning;
+  use Set;
   use SetStatement;
+  use Table;
+  use Top;
+  use Where;
   use WhereCurrentOf;
   use With;
 

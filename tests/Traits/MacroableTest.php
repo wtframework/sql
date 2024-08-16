@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use WTFramework\SQL\Simple\Statements\Select;
 use WTFramework\SQL\SQL;
+use WTFramework\SQL\Statements\Select;
 
 it('can add macro to statement', function ()
 {

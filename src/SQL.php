@@ -11,9 +11,12 @@ use WTFramework\SQL\Services\CTE;
 use WTFramework\SQL\Services\Index;
 use WTFramework\SQL\Services\Outfile;
 use WTFramework\SQL\Services\Partition;
+use WTFramework\SQL\Services\Raw;
 use WTFramework\SQL\Services\Subpartition;
+use WTFramework\SQL\Services\Subquery;
+use WTFramework\SQL\Services\Table;
+use WTFramework\SQL\Services\Upsert;
 use WTFramework\SQL\Services\Window;
-use WTFramework\SQL\Simple\SQL as SimpleSQL;
 use WTFramework\SQL\Statements\Alter;
 use WTFramework\SQL\Statements\Create;
 use WTFramework\SQL\Statements\CreateIndex;
@@ -25,9 +28,14 @@ use WTFramework\SQL\Statements\Replace;
 use WTFramework\SQL\Statements\Select;
 use WTFramework\SQL\Statements\Truncate;
 use WTFramework\SQL\Statements\Update;
+use WTFramework\SQL\Traits\Macroable;
+use WTFramework\SQL\Traits\StaticUseGrammar;
 
-abstract class SQL extends SimpleSQL
+abstract class SQL
 {
+
+  use Macroable;
+  use StaticUseGrammar;
 
   public static function alter(): Alter
   {
@@ -84,6 +92,11 @@ abstract class SQL extends SimpleSQL
     return (new Update)->use(static::grammar());
   }
 
+  public static function bind(string|int $value): Raw
+  {
+    return (new Raw('?'))->bind($value);
+  }
+
   public static function column(string $name): Column
   {
     return (new Column($name))->use(static::grammar());
@@ -117,9 +130,32 @@ abstract class SQL extends SimpleSQL
     return new Partition($name);
   }
 
+  public static function raw(
+    string $string,
+    string|int|array $bindings = []
+  ): Raw
+  {
+    return new Raw($string, $bindings);
+  }
+
   public static function subpartition(string $name): Subpartition
   {
     return new Subpartition($name);
+  }
+
+  public static function subquery(string|HasBindings $stmt): Subquery
+  {
+    return new Subquery($stmt);
+  }
+
+  public static function table(string $name): Table
+  {
+    return new Table($name);
+  }
+
+  public static function upsert(): Upsert
+  {
+    return new Upsert;
   }
 
   public static function window(string $name = ''): Window

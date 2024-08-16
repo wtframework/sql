@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
-use WTFramework\SQL\Grammar;
 use WTFramework\SQL\Interfaces\HasBindings;
 use WTFramework\SQL\Services\Raw;
 
