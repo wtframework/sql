@@ -27,6 +27,7 @@ it('can get column', function ()
     ->zeroFill()
     ->asRowStart()
     ->virtual()
+    ->identity()
     ->primaryKey()
     ->autoIncrement()
     ->visible()
@@ -64,6 +65,7 @@ it('can get column', function ()
   . "ZEROFILL "
   . "GENERATED ALWAYS AS ROW START "
   . "VIRTUAL "
+  . "IDENTITY (1, 1) "
   . "PRIMARY KEY "
   . "AUTO_INCREMENT "
   . "VISIBLE "

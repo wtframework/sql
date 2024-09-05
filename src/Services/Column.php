@@ -23,6 +23,7 @@ use WTFramework\SQL\Traits\First;
 use WTFramework\SQL\Traits\ForeignKeyMatch;
 use WTFramework\SQL\Traits\Format;
 use WTFramework\SQL\Traits\GeneratedAlwaysAs;
+use WTFramework\SQL\Traits\Identity;
 use WTFramework\SQL\Traits\IfExists;
 use WTFramework\SQL\Traits\IfNotExists;
 use WTFramework\SQL\Traits\Macroable;
@@ -68,6 +69,7 @@ class Column implements HasBindings
   use ForeignKeyMatch;
   use Format;
   use GeneratedAlwaysAs;
+  use Identity;
   use IfExists;
   use IfNotExists;
   use Macroable;
@@ -116,6 +118,7 @@ class Column implements HasBindings
       $this->getZeroFill(),
       $this->getAs(),
       $this->getVirtual() ?: $this->getPersistent() ?: $this->getStored(),
+      $this->getIdentity(),
       $this->getPrimaryKey() ?: $this->getUnique(),
       $this->getAutoIncrement($this->grammar()->autoIncrement()),
       $this->getVisibility(),
