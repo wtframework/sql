@@ -11,7 +11,7 @@ trait CreateIndex
 
   protected array $index = [];
 
-  public function index(string|HasBindings|array $index): static
+  public function index(string|HasBindings|array $index, string $name = null): static
   {
 
     if ($index instanceof HasBindings)
@@ -22,12 +22,9 @@ trait CreateIndex
     else
     {
 
-      $indexes = is_array(current((array) $index)) ? $index : [$index];
+      $name = $name ? "$name " : "";
 
-      foreach ($indexes as $index)
-      {
-        $this->index[] = "INDEX (" . implode(', ', (array) $index) . ")";
-      }
+      $this->index[] = "INDEX $name(" . implode(', ', (array) $index) . ")";
 
     }
 

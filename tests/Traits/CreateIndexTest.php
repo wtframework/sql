@@ -26,14 +26,25 @@ it('can create multiple column index', function ()
 
 });
 
-it('can create multiple indexes', function ()
+it('can create named index', function ()
 {
 
   expect(
     (string) SQL::create()
-    ->index([['test1'], ['test2']])
+    ->index('test1', 'test2')
   )
-  ->toEqual("CREATE TABLE (INDEX (test1), INDEX (test2))");
+  ->toEqual("CREATE TABLE (INDEX test2 (test1))");
+
+});
+
+it('can create named multiple column index', function ()
+{
+
+  expect(
+    (string) SQL::create()
+    ->index(['test1', 'test2'], 'test3')
+  )
+  ->toEqual("CREATE TABLE (INDEX test3 (test1, test2))");
 
 });
 
