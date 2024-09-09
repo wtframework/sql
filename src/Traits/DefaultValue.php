@@ -10,9 +10,9 @@ use WTFramework\SQL\SQL;
 trait DefaultValue
 {
 
-  protected string|int|HasBindings|null $default = null;
+  protected string|int|float|HasBindings|null $default = null;
 
-  public function default(string|int|HasBindings $expression): static
+  public function default(string|int|float|HasBindings $expression): static
   {
 
     if (is_string($expression))

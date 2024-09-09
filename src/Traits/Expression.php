@@ -11,7 +11,7 @@ trait Expression
 
   protected array $expression = [];
 
-  public function column(string|int|HasBindings|array $column): static
+  public function column(string|int|float|HasBindings|array $column): static
   {
 
     $columns = is_array($column) ? $column : [$column];

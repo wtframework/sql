@@ -14,7 +14,7 @@ class Raw implements HasBindings
 
   public function __construct(
     public readonly string $string,
-    string|int|array $bindings = []
+    string|int|float|array $bindings = []
   )
   {
     $this->bindings = (array) $bindings;

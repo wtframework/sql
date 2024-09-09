@@ -13,7 +13,7 @@ trait GroupBy
   protected string $with_rollup = '';
 
   public function groupBy(
-    string|int|HasBindings|array $column,
+    string|int|float|HasBindings|array $column,
     bool $desc = false
   ): static
   {

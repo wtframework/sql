@@ -16,9 +16,9 @@ trait Having
   protected array $having = [];
 
   public function having(
-    string|int|HasBindings|Closure|array $column = null,
-    string|int|array|HasBindings $operator = null,
-    string|int|array|HasBindings $value = null,
+    string|int|float|HasBindings|Closure|array $column = null,
+    string|int|float|array|HasBindings $operator = null,
+    string|int|float|array|HasBindings $value = null,
     bool $or = false,
     bool $not = false,
     int $num_args = null
@@ -119,9 +119,9 @@ trait Having
   }
 
   public function orHaving(
-    string|int|HasBindings|Closure|array $column = null,
-    string|int|array|HasBindings $operator = null,
-    string|int|array|HasBindings $value = null
+    string|int|float|HasBindings|Closure|array $column = null,
+    string|int|float|array|HasBindings $operator = null,
+    string|int|float|array|HasBindings $value = null
   ): static
   {
 
@@ -136,9 +136,9 @@ trait Having
   }
 
   public function havingNot(
-    string|int|HasBindings|Closure|array $column = null,
-    string|int|array|HasBindings $operator = null,
-    string|int|array|HasBindings $value = null
+    string|int|float|HasBindings|Closure|array $column = null,
+    string|int|float|array|HasBindings $operator = null,
+    string|int|float|array|HasBindings $value = null
   ): static
   {
 
@@ -153,9 +153,9 @@ trait Having
   }
 
   public function orHavingNot(
-    string|int|HasBindings|Closure|array $column = null,
-    string|int|array|HasBindings $operator = null,
-    string|int|array|HasBindings $value = null
+    string|int|float|HasBindings|Closure|array $column = null,
+    string|int|float|array|HasBindings $operator = null,
+    string|int|float|array|HasBindings $value = null
   ): static
   {
 

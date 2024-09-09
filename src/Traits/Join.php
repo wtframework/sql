@@ -15,9 +15,9 @@ trait Join
 
   public function join(
     string|HasBindings|array $table,
-    string|int|HasBindings|Closure|array $column = null,
-    string|int|array|HasBindings $operator = null,
-    string|int|array|HasBindings $value = null,
+    string|int|float|HasBindings|Closure|array $column = null,
+    string|int|float|array|HasBindings $operator = null,
+    string|int|float|array|HasBindings $value = null,
     string $join = 'join',
     int $num_args = null
   ): static
@@ -104,9 +104,9 @@ trait Join
 
   public function leftJoin(
     string|HasBindings|array $table,
-    string|int|HasBindings|Closure|array $column = null,
-    string|int|array|HasBindings $operator = null,
-    string|int|array|HasBindings $value = null,
+    string|int|float|HasBindings|Closure|array $column = null,
+    string|int|float|array|HasBindings $operator = null,
+    string|int|float|array|HasBindings $value = null,
   ): static
   {
 
@@ -123,9 +123,9 @@ trait Join
 
   public function rightJoin(
     string|HasBindings|array $table,
-    string|int|HasBindings|Closure|array $column = null,
-    string|int|array|HasBindings $operator = null,
-    string|int|array|HasBindings $value = null,
+    string|int|float|HasBindings|Closure|array $column = null,
+    string|int|float|array|HasBindings $operator = null,
+    string|int|float|array|HasBindings $value = null,
   ): static
   {
 
@@ -142,9 +142,9 @@ trait Join
 
   public function fullJoin(
     string|HasBindings|array $table,
-    string|int|HasBindings|Closure|array $column = null,
-    string|int|array|HasBindings $operator = null,
-    string|int|array|HasBindings $value = null,
+    string|int|float|HasBindings|Closure|array $column = null,
+    string|int|float|array|HasBindings $operator = null,
+    string|int|float|array|HasBindings $value = null,
   ): static
   {
 
@@ -161,9 +161,9 @@ trait Join
 
   public function crossJoin(
     string|HasBindings|array $table,
-    string|int|HasBindings|Closure|array $column = null,
-    string|int|array|HasBindings $operator = null,
-    string|int|array|HasBindings $value = null,
+    string|int|float|HasBindings|Closure|array $column = null,
+    string|int|float|array|HasBindings $operator = null,
+    string|int|float|array|HasBindings $value = null,
   ): static
   {
 
@@ -180,9 +180,9 @@ trait Join
 
   public function straightJoin(
     string|HasBindings|array $table,
-    string|int|HasBindings|Closure|array $column = null,
-    string|int|array|HasBindings $operator = null,
-    string|int|array|HasBindings $value = null,
+    string|int|float|HasBindings|Closure|array $column = null,
+    string|int|float|array|HasBindings $operator = null,
+    string|int|float|array|HasBindings $value = null,
   ): static
   {
 
@@ -238,9 +238,9 @@ trait Join
   }
 
   protected function getOn(
-    string|int|HasBindings|Closure|array $column = null,
-    string|int|array|HasBindings $operator = null,
-    string|int|array|HasBindings $value = null,
+    string|int|float|HasBindings|Closure|array $column = null,
+    string|int|float|array|HasBindings $operator = null,
+    string|int|float|array|HasBindings $value = null,
     int $num_args
   ): array
   {

@@ -11,7 +11,7 @@ trait Bind
 
   protected array $bindings = [];
 
-  public function bind(string|int|array $value): static
+  public function bind(string|int|float|array $value): static
   {
 
     foreach ((array) $value as $v)

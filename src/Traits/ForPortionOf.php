@@ -13,8 +13,8 @@ trait ForPortionOf
 
   public function forPortionOf(
     string $period,
-    string|int|HasBindings $from,
-    string|int|HasBindings $to
+    string|int|float|HasBindings $from,
+    string|int|float|HasBindings $to
   ): static
   {
 

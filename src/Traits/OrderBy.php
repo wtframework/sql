@@ -12,7 +12,7 @@ trait OrderBy
   protected array $order_by = [];
 
   public function orderBy(
-    string|int|HasBindings|array $column,
+    string|int|float|HasBindings|array $column,
     string $direction = ''
   ): static
   {

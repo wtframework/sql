@@ -9,8 +9,8 @@ trait Cycle
 
   protected array $cycle = [];
   protected string $cycle_set = '';
-  protected string|int $to = '';
-  protected string|int $default = '';
+  protected string|int|float $to = '';
+  protected string|int|float $default = '';
   protected string $using = '';
 
   public function cycle(string|array $column): static
@@ -34,7 +34,7 @@ trait Cycle
 
   }
 
-  public function to(string|int $value): static
+  public function to(string|int|float $value): static
   {
 
     $this->to = "TO $value";
@@ -43,7 +43,7 @@ trait Cycle
 
   }
 
-  public function default(string|int $value): static
+  public function default(string|int|float $value): static
   {
 
     $this->default = "DEFAULT $value";

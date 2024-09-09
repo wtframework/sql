@@ -92,7 +92,7 @@ abstract class SQL
     return (new Update)->use(static::grammar());
   }
 
-  public static function bind(string|int $value): Raw
+  public static function bind(string|int|float $value): Raw
   {
     return (new Raw('?'))->bind($value);
   }
@@ -132,7 +132,7 @@ abstract class SQL
 
   public static function raw(
     string $string,
-    string|int|array $bindings = []
+    string|int|float|array $bindings = []
   ): Raw
   {
     return new Raw($string, $bindings);

@@ -14,7 +14,7 @@ trait OnDuplicateKeyUpdate
 
   public function onDuplicateKeyUpdate(
     string|array $column,
-    string|int|HasBindings $value = null
+    string|int|float|HasBindings $value = null
   ): static
   {
 

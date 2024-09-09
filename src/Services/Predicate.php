@@ -16,9 +16,9 @@ class Predicate implements HasBindings
   protected array $predicate = [];
 
   public function __construct(
-    string|int|HasBindings $column,
-    string|int|array|HasBindings $operator = null,
-    string|int|array|HasBindings $value = null,
+    string|int|float|HasBindings $column,
+    string|int|float|array|HasBindings $operator = null,
+    string|int|float|array|HasBindings $value = null,
     int $num_args = null
   )
   {
@@ -41,7 +41,7 @@ class Predicate implements HasBindings
 
   }
 
-  protected function operator(string|int|array|HasBindings|null $value): string
+  protected function operator(string|int|float|array|HasBindings|null $value): string
   {
 
     return match (true)
@@ -76,10 +76,10 @@ class Predicate implements HasBindings
   }
 
   protected function unit(
-    string|int|array|HasBindings|null $unit,
+    string|int|float|array|HasBindings|null $unit,
     string $operator = null,
     bool $bind
-  ): string|int
+  ): string|int|float
   {
 
     switch (true)

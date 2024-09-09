@@ -16,9 +16,9 @@ trait IfElse
   protected string|HasBindings|null $else = null;
 
   public function if(
-    string|int|HasBindings|Closure|array $value1 = null,
-    string|int|array|HasBindings $operator = null,
-    string|int|array|HasBindings $value2 = null
+    string|int|float|HasBindings|Closure|array $value1 = null,
+    string|int|float|array|HasBindings $operator = null,
+    string|int|float|array|HasBindings $value2 = null
   ): static
   {
 

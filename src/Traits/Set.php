@@ -14,7 +14,7 @@ trait Set
 
   public function set(
     string|array $column,
-    string|int|HasBindings $value = null
+    string|int|float|HasBindings $value = null
   ): static
   {
 

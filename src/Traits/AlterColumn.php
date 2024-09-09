@@ -15,7 +15,7 @@ trait AlterColumn
   protected function alterColumn(
     string|array $column,
     string $suffix,
-    string|int|HasBindings $expression = null
+    string|int|float|HasBindings $expression = null
   ): static
   {
 
@@ -35,7 +35,7 @@ trait AlterColumn
 
   public function columnSetDefault(
     string|array $column,
-    string|int|HasBindings $expression
+    string|int|float|HasBindings $expression
   ): static
   {
 

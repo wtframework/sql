@@ -18,9 +18,9 @@ class Having implements HasBindings
   use TraitsHaving;
 
   public function __construct(
-    string|int|HasBindings|Closure|array $column = null,
-    string|int|array|HasBindings $operator = null,
-    string|int|array|HasBindings $value = null
+    string|int|float|HasBindings|Closure|array $column = null,
+    string|int|float|array|HasBindings $operator = null,
+    string|int|float|array|HasBindings $value = null
   )
   {
 

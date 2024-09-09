@@ -11,7 +11,7 @@ trait Returning
 
   protected array $returning = [];
 
-  public function returning(string|int|HasBindings|array $column = '*'): static
+  public function returning(string|int|float|HasBindings|array $column = '*'): static
   {
 
     $columns = is_array($column) ? $column : [$column];
