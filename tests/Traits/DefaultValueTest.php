@@ -8,13 +8,21 @@ it('can set default', function ()
 {
 
   expect(
-    (string) $column = SQL::column('test')
+    (string) SQL::column('test')
     ->default('test')
   )
-  ->toEqual("test DEFAULT (?)");
+  ->toEqual("test DEFAULT ('test')");
 
-  expect($column->bindings())
-  ->toEqual(['test']);
+});
+
+it('can set default with escaped quote', function ()
+{
+
+  expect(
+    (string) SQL::column('test')
+    ->default("'test'")
+  )
+  ->toEqual("test DEFAULT ('''test''')");
 
 });
 
@@ -26,16 +34,5 @@ it('can set default integer', function ()
     ->default(1)
   )
   ->toEqual("test DEFAULT (1)");
-
-});
-
-it('can set default raw value', function ()
-{
-
-  expect(
-    (string) SQL::column('test')
-    ->default(SQL::raw('test'))
-  )
-  ->toEqual("test DEFAULT (test)");
 
 });
