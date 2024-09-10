@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Statements;
 
+use WTFramework\SQL\Interfaces\HasBindings;
 use WTFramework\SQL\Statement;
 use WTFramework\SQL\Traits\AddColumn;
 use WTFramework\SQL\Traits\AddConstraint;
@@ -221,6 +222,16 @@ class Alter extends Statement
   use Wait;
   use WithSystemVersioning;
   use WithValidation;
+
+  public function __construct(string|HasBindings|null $table = null)
+  {
+
+    if ($table)
+    {
+      $this->table($table);
+    }
+
+  }
 
   protected function toArray(): array
   {

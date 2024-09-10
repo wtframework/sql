@@ -49,6 +49,9 @@ it('can get alter statement', function ()
   expect(SQL::alter())
   ->toBeInstanceOf(Alter::class);
 
+  expect((string) SQL::alter('test'))
+  ->toBe("ALTER TABLE test");
+
 });
 
 it('can get create statement', function ()
@@ -56,6 +59,9 @@ it('can get create statement', function ()
 
   expect(SQL::create())
   ->toBeInstanceOf(Create::class);
+
+  expect((string) SQL::create('test'))
+  ->toBe("CREATE TABLE test");
 
 });
 
@@ -83,6 +89,9 @@ it('can get drop statement', function ()
 
   expect(SQL::drop())
   ->toBeInstanceOf(Drop::class);
+
+  expect((string) SQL::drop('test'))
+  ->toBe("DROP TABLE test");
 
 });
 
@@ -126,6 +135,9 @@ it('can get truncate statement', function ()
 
   expect(SQL::truncate())
   ->toBeInstanceOf(Truncate::class);
+
+  expect((string) SQL::truncate('test'))
+  ->toBe("TRUNCATE TABLE test");
 
 });
 

@@ -37,3 +37,11 @@ it('can truncate', function ()
   );
 
 });
+
+it('can truncate with table name', function ()
+{
+
+  expect((string) new Truncate('test'))
+  ->toBe("TRUNCATE TABLE test");
+
+});

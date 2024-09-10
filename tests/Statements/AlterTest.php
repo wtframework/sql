@@ -234,6 +234,14 @@ it('can alter', function ()
 
 });
 
+it('can alter with table name', function ()
+{
+
+  expect((string) new Alter('test'))
+  ->toBe("ALTER TABLE test");
+
+});
+
 it('can add column', function ()
 {
 

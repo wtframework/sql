@@ -37,14 +37,14 @@ abstract class SQL
   use Macroable;
   use StaticUseGrammar;
 
-  public static function alter(): Alter
+  public static function alter(string|HasBindings|null $table = null): Alter
   {
-    return (new Alter)->use(static::grammar());
+    return (new Alter($table))->use(static::grammar());
   }
 
-  public static function create(): Create
+  public static function create(string|HasBindings|null $table = null): Create
   {
-    return (new Create)->use(static::grammar());
+    return (new Create($table))->use(static::grammar());
   }
 
   public static function createIndex(string $index): CreateIndex
@@ -57,9 +57,9 @@ abstract class SQL
     return (new Delete)->use(static::grammar());
   }
 
-  public static function drop(): Drop
+  public static function drop(string|HasBindings|null $table = null): Drop
   {
-    return (new Drop)->use(static::grammar());
+    return (new Drop($table))->use(static::grammar());
   }
 
   public static function dropIndex(string|array $index): DropIndex
@@ -82,9 +82,9 @@ abstract class SQL
     return (new Select)->use(static::grammar());
   }
 
-  public static function truncate(): Truncate
+  public static function truncate(string|HasBindings|null $table = null): Truncate
   {
-    return (new Truncate)->use(static::grammar());
+    return (new Truncate($table))->use(static::grammar());
   }
 
   public static function update(): Update

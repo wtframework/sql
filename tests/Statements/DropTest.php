@@ -38,3 +38,11 @@ it('can drop', function ()
   );
 
 });
+
+it('can drop with table name', function ()
+{
+
+  expect((string) new Drop('test'))
+  ->toBe("DROP TABLE test");
+
+});

@@ -169,3 +169,11 @@ it('can create', function ()
   ->toBe("CREATE TABLE PARTITION OF test");
 
 });
+
+it('can create with table name', function ()
+{
+
+  expect((string) new Create('test'))
+  ->toBe("CREATE TABLE test");
+
+});

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Statements;
 
+use WTFramework\SQL\Interfaces\HasBindings;
 use WTFramework\SQL\Statement;
 use WTFramework\SQL\Traits\AsSelect;
 use WTFramework\SQL\Traits\AutoExtendSize;
@@ -153,6 +154,16 @@ class Create extends Statement
   use Using;
   use WithoutRowID;
   use WithSystemVersioning;
+
+  public function __construct(string|HasBindings|null $table = null)
+  {
+
+    if ($table)
+    {
+      $this->table($table);
+    }
+
+  }
 
   protected function toArray(): array
   {
