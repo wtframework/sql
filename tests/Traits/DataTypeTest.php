@@ -206,13 +206,10 @@ it('can set as enum', function ()
 {
 
   expect(
-    (string) $column = SQL::column('test')
-    ->enum(['test1', 'test2'])
+    (string) SQL::column('test')
+    ->enum([1, 'test2', SQL::raw("DEFAULT")])
   )
-  ->toEqual('test ENUM (?, ?)');
-
-  expect($column->bindings())
-  ->toEqual(['test1', 'test2']);
+  ->toEqual("test ENUM (1, 'test2', DEFAULT)");
 
 });
 
@@ -359,13 +356,10 @@ it('can set as set', function ()
 {
 
   expect(
-    (string) $column = SQL::column('test')
-    ->set(['test1', 'test2'])
+    (string) SQL::column('test')
+    ->set([1, 'test2', SQL::raw("DEFAULT")])
   )
-  ->toEqual('test SET (?, ?)');
-
-  expect($column->bindings())
-  ->toEqual(['test1', 'test2']);
+  ->toEqual("test SET (1, 'test2', DEFAULT)");
 
 });
 
@@ -1153,13 +1147,10 @@ it('can set values', function ()
 {
 
   expect(
-    (string) $column = SQL::column('test')
-    ->values(['test1', 'test2'])
+    (string) SQL::column('test')
+    ->values([1, 'test2', SQL::raw("DEFAULT")])
   )
-  ->toEqual('test (?, ?)');
-
-  expect($column->bindings())
-  ->toEqual(['test1', 'test2']);
+  ->toEqual("test (1, 'test2', DEFAULT)");
 
 });
 

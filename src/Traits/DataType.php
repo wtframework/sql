@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace WTFramework\SQL\Traits;
 
 use WTFramework\SQL\Interfaces\HasBindings;
-use WTFramework\SQL\SQL;
 
 trait DataType
 {
@@ -16,7 +15,7 @@ trait DataType
   protected array $values = [];
   protected string $with_time_zone = '';
 
-  public function tinyInt(int $length = null): static
+  public function tinyInt(?int $length = null): static
   {
 
     $this->data_type = 'TINYINT';
@@ -25,7 +24,7 @@ trait DataType
 
   }
 
-  public function smallInt(int $length = null): static
+  public function smallInt(?int $length = null): static
   {
 
     $this->data_type = 'SMALLINT';
@@ -34,7 +33,7 @@ trait DataType
 
   }
 
-  public function mediumInt(int $length = null): static
+  public function mediumInt(?int $length = null): static
   {
 
     $this->data_type = 'MEDIUMINT';
@@ -43,7 +42,7 @@ trait DataType
 
   }
 
-  public function int(int $length = null): static
+  public function int(?int $length = null): static
   {
 
     $this->data_type = 'INTEGER';
@@ -52,7 +51,7 @@ trait DataType
 
   }
 
-  public function bigInt(int $length = null): static
+  public function bigInt(?int $length = null): static
   {
 
     $this->data_type = 'BIGINT';
@@ -62,8 +61,8 @@ trait DataType
   }
 
   public function decimal(
-    int $length = null,
-    int $decimals = null
+    ?int $length = null,
+    ?int $decimals = null
   ): static
   {
 
@@ -74,8 +73,8 @@ trait DataType
   }
 
   public function float(
-    int $length = null,
-    int $decimals = null
+    ?int $length = null,
+    ?int $decimals = null
   ): static
   {
 
@@ -86,8 +85,8 @@ trait DataType
   }
 
   public function double(
-    int $length = null,
-    int $decimals = null
+    ?int $length = null,
+    ?int $decimals = null
   ): static
   {
 
@@ -97,7 +96,7 @@ trait DataType
 
   }
 
-  public function bit(int $length = null): static
+  public function bit(?int $length = null): static
   {
 
     $this->data_type = 'BIT';
@@ -115,7 +114,7 @@ trait DataType
 
   }
 
-  public function blob(int $length = null): static
+  public function blob(?int $length = null): static
   {
 
     $this->data_type = 'BLOB';
@@ -124,7 +123,7 @@ trait DataType
 
   }
 
-  public function char(int $length = null): static
+  public function char(?int $length = null): static
   {
 
     $this->data_type = 'CHAR';
@@ -133,7 +132,7 @@ trait DataType
 
   }
 
-  public function enum(string|HasBindings|array $values = null): static
+  public function enum(string|HasBindings|array|null $values = null): static
   {
 
     $this->data_type = 'ENUM';
@@ -196,7 +195,7 @@ trait DataType
 
   }
 
-  public function text(int $length = null): static
+  public function text(?int $length = null): static
   {
 
     $this->data_type = 'TEXT';
@@ -223,7 +222,7 @@ trait DataType
 
   }
 
-  public function varbinary(int $length = null): static
+  public function varbinary(?int $length = null): static
   {
 
     $this->data_type = 'VARBINARY';
@@ -232,7 +231,7 @@ trait DataType
 
   }
 
-  public function varchar(int $length = null): static
+  public function varchar(?int $length = null): static
   {
 
     $this->data_type = 'VARCHAR';
@@ -241,7 +240,7 @@ trait DataType
 
   }
 
-  public function set(string|HasBindings|array $values = null): static
+  public function set(string|HasBindings|array|null $values = null): static
   {
 
     $this->data_type = 'SET';
@@ -268,7 +267,7 @@ trait DataType
 
   }
 
-  public function time(int $precision = null): static
+  public function time(?int $precision = null): static
   {
 
     $this->data_type = 'TIME';
@@ -277,7 +276,7 @@ trait DataType
 
   }
 
-  public function datetime(int $precision = null): static
+  public function datetime(?int $precision = null): static
   {
 
     $this->data_type = 'DATETIME';
@@ -286,7 +285,7 @@ trait DataType
 
   }
 
-  public function timestamp(int $precision = null): static
+  public function timestamp(?int $precision = null): static
   {
 
     $this->data_type = 'TIMESTAMP';
@@ -295,7 +294,7 @@ trait DataType
 
   }
 
-  public function year(int $length = null): static
+  public function year(?int $length = null): static
   {
 
     $this->data_type = 'YEAR';
@@ -376,7 +375,7 @@ trait DataType
 
   }
 
-  public function integer(int $length = null): static
+  public function integer(?int $length = null): static
   {
 
     $this->data_type = 'INTEGER';
@@ -403,7 +402,7 @@ trait DataType
 
   }
 
-  public function varbit(int $length = null): static
+  public function varbit(?int $length = null): static
   {
 
     $this->data_type = 'VARBIT';
@@ -457,7 +456,7 @@ trait DataType
 
   }
 
-  public function interval(int $precision = null): static
+  public function interval(?int $precision = null): static
   {
 
     $this->data_type = 'INTERVAL';
@@ -511,7 +510,7 @@ trait DataType
 
   }
 
-  public function intervalSecond(int $precision = null): static
+  public function intervalSecond(?int $precision = null): static
   {
 
     $this->data_type = 'INTERVAL SECOND';
@@ -547,7 +546,7 @@ trait DataType
 
   }
 
-  public function intervalDayToSecond(int $precision = null): static
+  public function intervalDayToSecond(?int $precision = null): static
   {
 
     $this->data_type = 'INTERVAL DAY TO SECOND';
@@ -565,7 +564,7 @@ trait DataType
 
   }
 
-  public function intervalHourToSecond(int $precision = null): static
+  public function intervalHourToSecond(?int $precision = null): static
   {
 
     $this->data_type = 'INTERVAL HOUR TO SECOND';
@@ -574,7 +573,7 @@ trait DataType
 
   }
 
-  public function intervalMinuteToSecond(int $precision = null): static
+  public function intervalMinuteToSecond(?int $precision = null): static
   {
 
     $this->data_type = 'INTERVAL MINUTE TO SECOND';
@@ -691,7 +690,7 @@ trait DataType
 
   }
 
-  public function timeWithTimeZone(int $precision = null): static
+  public function timeWithTimeZone(?int $precision = null): static
   {
 
     $this->data_type = 'TIME';
@@ -702,7 +701,7 @@ trait DataType
 
   }
 
-  public function timestampWithTimeZone(int $precision = null): static
+  public function timestampWithTimeZone(?int $precision = null): static
   {
 
     $this->data_type = 'TIMESTAMP';
@@ -749,7 +748,7 @@ trait DataType
 
   }
 
-  public function datetimeOffset(int $precision = null): static
+  public function datetimeOffset(?int $precision = null): static
   {
 
     $this->data_type = 'DATETIMEOFFSET';
@@ -758,7 +757,7 @@ trait DataType
 
   }
 
-  public function datetime2(int $precision = null): static
+  public function datetime2(?int $precision = null): static
   {
 
     $this->data_type = 'DATETIME2';
@@ -776,7 +775,7 @@ trait DataType
 
   }
 
-  public function nchar(int $length = null): static
+  public function nchar(?int $length = null): static
   {
 
     $this->data_type = 'NCHAR';
@@ -785,7 +784,7 @@ trait DataType
 
   }
 
-  public function nvarchar(int $length = null): static
+  public function nvarchar(?int $length = null): static
   {
 
     $this->data_type = 'NVARCHAR';
@@ -849,8 +848,8 @@ trait DataType
   }
 
   public function length(
-    int $length = null,
-    int $decimals = null
+    ?int $length = null,
+    ?int $decimals = null
   ): static
   {
 
@@ -871,7 +870,7 @@ trait DataType
 
       if (is_string($value))
       {
-        $value = SQL::bind($value);
+        $value = "'" . str_replace("'", "''", $value) . "'";
       }
 
       $this->values[] = $value;
@@ -905,16 +904,6 @@ trait DataType
     }
 
     $values = implode(', ', $this->values);
-
-    foreach ($this->values as $value)
-    {
-
-      if ($value instanceof HasBindings)
-      {
-        $this->mergeBindings($value);
-      }
-
-    }
 
     return "($values)";
 

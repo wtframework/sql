@@ -24,6 +24,11 @@ A [`Column`](services/column.md) service class can also be passed, providing a f
 ```php
 $stmt->column(SQL::column('c1')->int());
 ```
+\
+You can also call the data type methods directly to add and return a column of that type
+```php
+$stmt->int('c1'); // Adds and returns the Column service class
+```
 
 ## Primary key
 Use the `primaryKey` method to set the primary key.
