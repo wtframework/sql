@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use WTFramework\SQL\Services\Column;
 use WTFramework\SQL\Statements\Alter;
 
 it('can alter', function ()
@@ -60,9 +61,9 @@ it('can alter', function ()
     ->reset('test')
     ->enableRowLevelSecurity()
     ->enableRule('test')
-    ->set('test')
     ->setAccessMethod('test')
     ->setLogged()
+    ->setParam('test')
     ->setTablespace('test')
     ->setWithoutCluster()
     ->enableTrigger('test')
@@ -172,9 +173,9 @@ it('can alter', function ()
   . "RESET (test), "
   . "ENABLE ROW LEVEL SECURITY, "
   . "ENABLE RULE test, "
-  . "SET (test), "
   . "SET ACCESS METHOD test, "
   . "SET LOGGED, "
+  . "SET (test), "
   . "SET TABLESPACE test, "
   . "SET WITHOUT CLUSTER, "
   . "ENABLE TRIGGER test, "
@@ -230,5 +231,25 @@ it('can alter', function ()
   . "ORDER BY test "
   . "ELSE test"
   );
+
+});
+
+it('can add column', function ()
+{
+
+  $sql = new Alter;
+
+  $column = $sql->tinyInt("test1", 1);
+
+  expect($column)
+  ->toBeInstanceOf(Column::class);
+
+  expect((string) $column)
+  ->toEqual('test1 TINYINT (1)');
+
+  $sql->varchar("test2", 255);
+
+  expect((string) $sql)
+  ->toEqual('ALTER TABLE ADD test1 TINYINT (1), ADD test2 VARCHAR (255)');
 
 });

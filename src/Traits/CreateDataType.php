@@ -7,6 +7,7 @@ namespace WTFramework\SQL\Traits;
 use WTFramework\SQL\Interfaces\HasBindings;
 use WTFramework\SQL\Services\Column;
 use WTFramework\SQL\SQL;
+use WTFramework\SQL\Statements\Alter;
 
 trait CreateDataType
 {
@@ -14,7 +15,17 @@ trait CreateDataType
   protected function createColumn(string $name): Column
   {
 
-    $this->column($column = SQL::column($name));
+    $column = SQL::column($name);
+
+    if ($this instanceof Alter)
+    {
+      $this->addColumn($column);
+    }
+
+    else
+    {
+      $this->column($column);
+    }
 
     return $column;
 

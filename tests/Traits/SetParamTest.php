@@ -9,7 +9,7 @@ it('can set storage parameter', function ()
 
   expect(
     (string) SQL::alter()
-    ->set('test')
+    ->setParam('test')
   )
   ->toEqual("ALTER TABLE SET (test)");
 
@@ -20,7 +20,7 @@ it('can set storage parameter with value', function ()
 
   expect(
     (string) SQL::alter()
-    ->set('test1', 'test2')
+    ->setParam('test1', 'test2')
   )
   ->toEqual("ALTER TABLE SET (test1 = test2)");
 
@@ -31,7 +31,7 @@ it('can set multiple storage parameters', function ()
 
   expect(
     (string) SQL::alter()
-    ->set([
+    ->setParam([
       'test1',
       'test2' => 'test3'
     ])

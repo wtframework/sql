@@ -16,7 +16,6 @@ use WTFramework\SQL\Traits\AlterColumn;
 use WTFramework\SQL\Traits\AlterConstraint;
 use WTFramework\SQL\Traits\AlterIndex;
 use WTFramework\SQL\Traits\AlterPartition;
-use WTFramework\SQL\Traits\AlterSet;
 use WTFramework\SQL\Traits\AttachPartition;
 use WTFramework\SQL\Traits\AutoExtendSize;
 use WTFramework\SQL\Traits\AutoIncrement;
@@ -31,6 +30,7 @@ use WTFramework\SQL\Traits\Compression;
 use WTFramework\SQL\Traits\Connection;
 use WTFramework\SQL\Traits\ConvertTable;
 use WTFramework\SQL\Traits\ConvertToCharacterSet;
+use WTFramework\SQL\Traits\CreateDataType;
 use WTFramework\SQL\Traits\DataDirectory;
 use WTFramework\SQL\Traits\DelayKeyWrite;
 use WTFramework\SQL\Traits\DetachPartition;
@@ -90,6 +90,7 @@ use WTFramework\SQL\Traits\SecondaryEngineAttribute;
 use WTFramework\SQL\Traits\Sequence;
 use WTFramework\SQL\Traits\SetAccessMethod;
 use WTFramework\SQL\Traits\SetLogged;
+use WTFramework\SQL\Traits\SetParam;
 use WTFramework\SQL\Traits\SetSchema;
 use WTFramework\SQL\Traits\SetTablespace;
 use WTFramework\SQL\Traits\SetWithoutCluster;
@@ -125,7 +126,6 @@ class Alter extends Statement
   use AlterConstraint;
   use AlterIndex;
   use AlterPartition;
-  use AlterSet;
   use AttachPartition;
   use AutoExtendSize;
   use AutoIncrement;
@@ -140,6 +140,7 @@ class Alter extends Statement
   use Connection;
   use ConvertTable;
   use ConvertToCharacterSet;
+  use CreateDataType;
   use DataDirectory;
   use DelayKeyWrite;
   use DetachPartition;
@@ -199,6 +200,7 @@ class Alter extends Statement
   use Sequence;
   use SetAccessMethod;
   use SetLogged;
+  use SetParam;
   use SetSchema;
   use SetTablespace;
   use SetWithoutCluster;
@@ -276,9 +278,9 @@ class Alter extends Statement
         $this->getReset(),
         $this->getRowLevelSecurity(),
         $this->getRule(),
-        $this->getSet(),
         $this->getSetAccessMethod(),
         $this->getSetLogged(),
+        $this->getSetParam(),
         $this->getSetTablespace(),
         $this->getSetWithoutCluster(),
         $this->getTrigger(),

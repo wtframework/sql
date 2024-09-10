@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
-trait AlterSet
+trait SetParam
 {
 
-  protected array $alter_set = [];
+  protected array $set_param = [];
 
-  public function set(
+  public function setParam(
     string|array $parameter,
     mixed $value = null
   ): static
@@ -17,24 +17,24 @@ trait AlterSet
 
     if (is_array($parameter))
     {
-      return $this->arraySet($parameter);
+      return $this->arraySetParam($parameter);
     }
 
     $value = null === $value ? '' : " = $value";
 
-    $this->alter_set[] = "$parameter$value";
+    $this->set_param[] = "$parameter$value";
 
     return $this;
 
   }
 
-  protected function arraySet(array $parameters): static
+  protected function arraySetParam(array $parameters): static
   {
 
     foreach ($parameters as $parameter => $value)
     {
 
-      $this->set(
+      $this->setParam(
         parameter: is_int($parameter) ? $value : $parameter,
         value: is_int($parameter) ? null : $value
       );
@@ -45,17 +45,17 @@ trait AlterSet
 
   }
 
-  public function getSet(): string
+  public function getSetParam(): string
   {
 
-    if (empty($this->alter_set))
+    if (empty($this->set_param))
     {
       return '';
     }
 
-    $alter_set = implode(', ', $this->alter_set);
+    $set_param = implode(', ', $this->set_param);
 
-    return "SET ($alter_set)";
+    return "SET ($set_param)";
 
   }
 
