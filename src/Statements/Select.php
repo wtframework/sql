@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Statements;
 
+use WTFramework\SQL\Interfaces\HasBindings;
 use WTFramework\SQL\Statement;
 use WTFramework\SQL\Traits\Distinct;
 use WTFramework\SQL\Traits\Explain;
@@ -89,6 +90,16 @@ class Select extends Statement
   use WhereCurrentOf;
   use Window;
   use With;
+
+  public function __construct(string|HasBindings|array|null $table = null)
+  {
+
+    if ($table)
+    {
+      $this->from($table);
+    }
+
+  }
 
   protected function toArray(): array
   {

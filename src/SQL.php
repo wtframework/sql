@@ -37,12 +37,12 @@ abstract class SQL
   use Macroable;
   use StaticUseGrammar;
 
-  public static function alter(string|HasBindings|null $table = null): Alter
+  public static function alter(string|HasBindings $table = null): Alter
   {
     return (new Alter($table))->use(static::grammar());
   }
 
-  public static function create(string|HasBindings|null $table = null): Create
+  public static function create(string|HasBindings $table = null): Create
   {
     return (new Create($table))->use(static::grammar());
   }
@@ -52,12 +52,12 @@ abstract class SQL
     return (new CreateIndex($index))->use(static::grammar());
   }
 
-  public static function delete(): Delete
+  public static function delete(string|HasBindings|array $table = null): Delete
   {
-    return (new Delete)->use(static::grammar());
+    return (new Delete($table))->use(static::grammar());
   }
 
-  public static function drop(string|HasBindings|null $table = null): Drop
+  public static function drop(string|HasBindings $table = null): Drop
   {
     return (new Drop($table))->use(static::grammar());
   }
@@ -67,29 +67,29 @@ abstract class SQL
     return (new DropIndex($index))->use(static::grammar());
   }
 
-  public static function insert(): Insert
+  public static function insert(string|HasBindings|array $table = null): Insert
   {
-    return (new Insert)->use(static::grammar());
+    return (new Insert($table))->use(static::grammar());
   }
 
-  public static function replace(): Replace
+  public static function replace(string|HasBindings|array $table = null): Replace
   {
-    return (new Replace)->use(static::grammar());
+    return (new Replace($table))->use(static::grammar());
   }
 
-  public static function select(): Select
+  public static function select(string|HasBindings|array $table = null): Select
   {
-    return (new Select)->use(static::grammar());
+    return (new Select($table))->use(static::grammar());
   }
 
-  public static function truncate(string|HasBindings|null $table = null): Truncate
+  public static function truncate(string|HasBindings $table = null): Truncate
   {
     return (new Truncate($table))->use(static::grammar());
   }
 
-  public static function update(): Update
+  public static function update(string|HasBindings|array $table = null): Update
   {
-    return (new Update)->use(static::grammar());
+    return (new Update($table))->use(static::grammar());
   }
 
   public static function bind(string|int|float $value): Raw

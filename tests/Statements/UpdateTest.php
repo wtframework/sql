@@ -70,3 +70,11 @@ it('can update', function ()
   ->toBe("UPDATE WHERE CURRENT OF cursor");
 
 });
+
+it('can update with table name', function ()
+{
+
+  expect((string) new Update('test'))
+  ->toBe("UPDATE test");
+
+});

@@ -71,3 +71,11 @@ it('can insert', function ()
   ->toBe("INSERT TOP (1) DEFAULT VALUES");
 
 });
+
+it('can insert with table name', function ()
+{
+
+  expect((string) new Insert('test'))
+  ->toBe("INSERT INTO test VALUES ()");
+
+});

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Statements;
 
+use WTFramework\SQL\Interfaces\HasBindings;
 use WTFramework\SQL\Statement;
 use WTFramework\SQL\Traits\Column;
 use WTFramework\SQL\Traits\Delayed;
@@ -51,6 +52,16 @@ class Insert extends Statement
   use Top;
   use Values;
   use With;
+
+  public function __construct(string|HasBindings|array|null $table = null)
+  {
+
+    if ($table)
+    {
+      $this->into($table);
+    }
+
+  }
 
   protected function toArray(): array
   {

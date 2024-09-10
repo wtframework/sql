@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Statements;
 
+use WTFramework\SQL\Interfaces\HasBindings;
 use WTFramework\SQL\Statement;
 use WTFramework\SQL\Traits\BeforeSystemTime;
 use WTFramework\SQL\Traits\Explain;
@@ -51,6 +52,16 @@ class Delete extends Statement
   use Where;
   use WhereCurrentOf;
   use With;
+
+  public function __construct(string|HasBindings|array|null $table = null)
+  {
+
+    if ($table)
+    {
+      $this->from($table);
+    }
+
+  }
 
   protected function toArray(): array
   {

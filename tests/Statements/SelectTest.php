@@ -102,3 +102,11 @@ it('can select', function ()
   ->toEqual("SELECT * INTO @test");
 
 });
+
+it('can select with table name', function ()
+{
+
+  expect((string) new Select('test'))
+  ->toBe("SELECT * FROM test");
+
+});

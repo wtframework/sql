@@ -48,3 +48,11 @@ it('can replace', function ()
   ->toBe("REPLACE SELECT");
 
 });
+
+it('can replace with table name', function ()
+{
+
+  expect((string) new Replace('test'))
+  ->toBe("REPLACE INTO test VALUES ()");
+
+});

@@ -27,7 +27,7 @@ class Drop extends Statement
   use Temporary;
   use Wait;
 
-  public function __construct(string|HasBindings|null $table = null)
+  public function __construct(string|HasBindings|array|null $table = null)
   {
 
     if ($table)

@@ -82,6 +82,9 @@ it('can get delete statement', function ()
   expect(SQL::delete())
   ->toBeInstanceOf(Delete::class);
 
+  expect((string) SQL::delete('test'))
+  ->toBe("DELETE FROM test");
+
 });
 
 it('can get drop statement', function ()
@@ -112,6 +115,9 @@ it('can get insert statement', function ()
   expect(SQL::insert())
   ->toBeInstanceOf(Insert::class);
 
+  expect((string) SQL::insert('test'))
+  ->toBe("INSERT INTO test VALUES ()");
+
 });
 
 it('can get replace statement', function ()
@@ -120,6 +126,9 @@ it('can get replace statement', function ()
   expect(SQL::replace())
   ->toBeInstanceOf(Replace::class);
 
+  expect((string) SQL::replace('test'))
+  ->toBe("REPLACE INTO test VALUES ()");
+
 });
 
 it('can get select statement', function ()
@@ -127,6 +136,9 @@ it('can get select statement', function ()
 
   expect(SQL::select())
   ->toBeInstanceOf(Select::class);
+
+  expect((string) SQL::select('test'))
+  ->toBe("SELECT * FROM test");
 
 });
 
@@ -146,6 +158,9 @@ it('can get update statement', function ()
 
   expect(SQL::update())
   ->toBeInstanceOf(Update::class);
+
+  expect((string) SQL::update('test'))
+  ->toBe("UPDATE test");
 
 });
 

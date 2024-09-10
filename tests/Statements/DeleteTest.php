@@ -76,3 +76,11 @@ it('can delete', function ()
   ->toBe("DELETE WHERE CURRENT OF cursor RETURNING * ORDER BY c1");
 
 });
+
+it('can delete with table name', function ()
+{
+
+  expect((string) new Delete('test'))
+  ->toBe("DELETE FROM test");
+
+});
