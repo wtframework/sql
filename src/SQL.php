@@ -57,7 +57,7 @@ abstract class SQL
     return (new Delete($table))->use(static::grammar());
   }
 
-  public static function drop(string|HasBindings $table = null): Drop
+  public static function drop(string|HasBindings|array $table = null): Drop
   {
     return (new Drop($table))->use(static::grammar());
   }
@@ -82,7 +82,7 @@ abstract class SQL
     return (new Select($table))->use(static::grammar());
   }
 
-  public static function truncate(string|HasBindings $table = null): Truncate
+  public static function truncate(string|HasBindings|array $table = null): Truncate
   {
     return (new Truncate($table))->use(static::grammar());
   }
