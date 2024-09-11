@@ -169,3 +169,61 @@ it('can select where exists subquery', function ()
   ->toEqual("SELECT * WHERE EXISTS (test)");
 
 });
+
+it('can select where raw', function ()
+{
+
+  expect(
+    (string) $stmt = SQL::select()
+    ->whereRaw("FIND_IN_SET(test1, ?) = 0", 'test2')
+  )
+  ->toEqual("SELECT * WHERE FIND_IN_SET(test1, ?) = 0");
+
+  expect($stmt->bindings())
+  ->toEqual(['test2']);
+
+});
+
+it('can select where not raw', function ()
+{
+
+  expect(
+    (string) $stmt = SQL::select()
+    ->whereNotRaw("FIND_IN_SET(test1, ?) = 0", 'test2')
+  )
+  ->toEqual("SELECT * WHERE NOT FIND_IN_SET(test1, ?) = 0");
+
+  expect($stmt->bindings())
+  ->toEqual(['test2']);
+
+});
+
+it('can select or where raw', function ()
+{
+
+  expect(
+    (string) $stmt = SQL::select()
+    ->where('test1', 'test2')
+    ->orWhereRaw("FIND_IN_SET(test3, ?) = 0", 'test4')
+  )
+  ->toEqual("SELECT * WHERE test1 = ? OR FIND_IN_SET(test3, ?) = 0");
+
+  expect($stmt->bindings())
+  ->toEqual(['test2', 'test4']);
+
+});
+
+it('can select or where not raw', function ()
+{
+
+  expect(
+    (string) $stmt = SQL::select()
+    ->where('test1', 'test2')
+    ->orWhereNotRaw("FIND_IN_SET(test3, ?) = 0", 'test4')
+  )
+  ->toEqual("SELECT * WHERE test1 = ? OR NOT FIND_IN_SET(test3, ?) = 0");
+
+  expect($stmt->bindings())
+  ->toEqual(['test2', 'test4']);
+
+});

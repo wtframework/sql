@@ -10,6 +10,7 @@ use WTFramework\SQL\Services\On as ServicesOn;
 use WTFramework\SQL\Services\Predicate;
 use WTFramework\SQL\Services\Raw;
 use WTFramework\SQL\Services\Subquery;
+use WTFramework\SQL\SQL;
 
 trait On
 {
@@ -227,6 +228,38 @@ trait On
       not: true
     );
 
+  }
+
+  public function onRaw(
+    string $condition,
+    string|int|float|array $bindings = []
+  ): static
+  {
+    return $this->on(SQL::raw($condition, $bindings));
+  }
+
+  public function orOnRaw(
+    string $condition,
+    string|int|float|array $bindings = []
+  ): static
+  {
+    return $this->orOn(SQL::raw($condition, $bindings));
+  }
+
+  public function onNotRaw(
+    string $condition,
+    string|int|float|array $bindings = []
+  ): static
+  {
+    return $this->onNot(SQL::raw($condition, $bindings));
+  }
+
+  public function orOnNotRaw(
+    string $condition,
+    string|int|float|array $bindings = []
+  ): static
+  {
+    return $this->orOnNot(SQL::raw($condition, $bindings));
   }
 
   protected function addOn(

@@ -539,3 +539,63 @@ it('can straight join on defined comparison', function ()
   ->toEqual("SELECT * STRAIGHT_JOIN test1 ON test2 < test3");
 
 });
+
+it('can join on raw', function ()
+{
+
+  expect(
+    (string) $stmt = SQL::select()
+    ->join('test1', fn (On $o) => $o->onRaw('CONCAT(test2) = ?', 'test3'))
+  )
+  ->toEqual("SELECT * JOIN test1 ON CONCAT(test2) = ?");
+
+  expect($stmt->bindings())
+  ->toBe(["test3"]);
+
+});
+
+it('can join on not raw', function ()
+{
+
+  expect(
+    (string) $stmt = SQL::select()
+    ->join('test1', fn (On $o) => $o->onNotRaw('CONCAT(test2) = ?', 'test3'))
+  )
+  ->toEqual("SELECT * JOIN test1 ON NOT CONCAT(test2) = ?");
+
+  expect($stmt->bindings())
+  ->toBe(["test3"]);
+
+});
+
+it('can join or on raw', function ()
+{
+
+  expect(
+    (string) $stmt = SQL::select()
+    ->join('test1', fn (On $o) => $o->on("test2", "test3")
+      ->orOnRaw('CONCAT(test4) = ?', 'test5')
+    )
+  )
+  ->toEqual("SELECT * JOIN test1 ON (test2 = test3 OR CONCAT(test4) = ?)");
+
+  expect($stmt->bindings())
+  ->toBe(["test5"]);
+
+});
+
+it('can join or on not raw', function ()
+{
+
+  expect(
+    (string) $stmt = SQL::select()
+    ->join('test1', fn (On $o) => $o->on("test2", "test3")
+      ->orOnNotRaw('CONCAT(test4) = ?', 'test5')
+    )
+  )
+  ->toEqual("SELECT * JOIN test1 ON (test2 = test3 OR NOT CONCAT(test4) = ?)");
+
+  expect($stmt->bindings())
+  ->toBe(["test5"]);
+
+});

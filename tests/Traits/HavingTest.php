@@ -155,3 +155,61 @@ it('can select having exists subquery', function ()
   ->toEqual("SELECT * HAVING EXISTS (test)");
 
 });
+
+it('can select having raw', function ()
+{
+
+  expect(
+    (string) $stmt = SQL::select()
+    ->havingRaw("FIND_IN_SET(test1, ?) = 0", 'test2')
+  )
+  ->toEqual("SELECT * HAVING FIND_IN_SET(test1, ?) = 0");
+
+  expect($stmt->bindings())
+  ->toEqual(['test2']);
+
+});
+
+it('can select having not raw', function ()
+{
+
+  expect(
+    (string) $stmt = SQL::select()
+    ->havingNotRaw("FIND_IN_SET(test1, ?) = 0", 'test2')
+  )
+  ->toEqual("SELECT * HAVING NOT FIND_IN_SET(test1, ?) = 0");
+
+  expect($stmt->bindings())
+  ->toEqual(['test2']);
+
+});
+
+it('can select or having raw', function ()
+{
+
+  expect(
+    (string) $stmt = SQL::select()
+    ->having('test1', 'test2')
+    ->orHavingRaw("FIND_IN_SET(test3, ?) = 0", 'test4')
+  )
+  ->toEqual("SELECT * HAVING test1 = ? OR FIND_IN_SET(test3, ?) = 0");
+
+  expect($stmt->bindings())
+  ->toEqual(['test2', 'test4']);
+
+});
+
+it('can select or having not raw', function ()
+{
+
+  expect(
+    (string) $stmt = SQL::select()
+    ->having('test1', 'test2')
+    ->orHavingNotRaw("FIND_IN_SET(test3, ?) = 0", 'test4')
+  )
+  ->toEqual("SELECT * HAVING test1 = ? OR NOT FIND_IN_SET(test3, ?) = 0");
+
+  expect($stmt->bindings())
+  ->toEqual(['test2', 'test4']);
+
+});

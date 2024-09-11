@@ -9,6 +9,7 @@ use WTFramework\SQL\Interfaces\HasBindings;
 use WTFramework\SQL\Services\Predicate;
 use WTFramework\SQL\Services\Subquery;
 use WTFramework\SQL\Services\Where as ServicesWhere;
+use WTFramework\SQL\SQL;
 
 trait Where
 {
@@ -220,6 +221,38 @@ trait Where
       not: true
     );
 
+  }
+
+  public function whereRaw(
+    string $condition,
+    string|int|float|array $bindings = []
+  ): static
+  {
+    return $this->where(SQL::raw($condition, $bindings));
+  }
+
+  public function orWhereRaw(
+    string $condition,
+    string|int|float|array $bindings = []
+  ): static
+  {
+    return $this->orWhere(SQL::raw($condition, $bindings));
+  }
+
+  public function whereNotRaw(
+    string $condition,
+    string|int|float|array $bindings = []
+  ): static
+  {
+    return $this->whereNot(SQL::raw($condition, $bindings));
+  }
+
+  public function orWhereNotRaw(
+    string $condition,
+    string|int|float|array $bindings = []
+  ): static
+  {
+    return $this->orWhereNot(SQL::raw($condition, $bindings));
   }
 
   protected function addWhere(

@@ -105,6 +105,11 @@ $on->onExists($subquery);
 $on->orOnExists($subquery);
 $on->onNotExists($subquery);
 $on->orOnNotExists($subquery);
+
+$on->onRaw('col1 = ?', 1);
+$on->orOnRaw('col1 IN (?, ?)', [1, 2]);
+$on->onNotRaw('col1 = ?', 1);
+$on->orOnNotRaw('col1 IN (?, ?)', [1, 2]);
 ```
 \
 Other join types are also possible, all of which work the same as the `join` method.
@@ -181,6 +186,11 @@ $stmt->whereExists($subquery);
 $stmt->orWhereExists($subquery);
 $stmt->whereNotExists($subquery);
 $stmt->orWhereNotExists($subquery);
+
+$on->whereRaw('col1 = ?', 1);
+$on->orWhereRaw('col1 IN (?, ?)', [1, 2]);
+$on->whereNotRaw('col1 = ?', 1);
+$on->orWhereNotRaw('col1 IN (?, ?)', [1, 2]);
 ```
 
 ## Group by
@@ -257,6 +267,11 @@ $stmt->havingExists($subquery);
 $stmt->orHavingExists($subquery);
 $stmt->havingNotExists($subquery);
 $stmt->orHavingNotExists($subquery);
+
+$on->havingRaw('col1 = ?', 1);
+$on->orHavingRaw('col1 IN (?, ?)', [1, 2]);
+$on->havingNotRaw('col1 = ?', 1);
+$on->orHavingNotRaw('col1 IN (?, ?)', [1, 2]);
 ```
 
 ## Window

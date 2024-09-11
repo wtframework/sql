@@ -9,6 +9,7 @@ use WTFramework\SQL\Interfaces\HasBindings;
 use WTFramework\SQL\Services\Predicate;
 use WTFramework\SQL\Services\Subquery;
 use WTFramework\SQL\Services\Having as ServicesHaving;
+use WTFramework\SQL\SQL;
 
 trait Having
 {
@@ -220,6 +221,38 @@ trait Having
       not: true
     );
 
+  }
+
+  public function havingRaw(
+    string $condition,
+    string|int|float|array $bindings = []
+  ): static
+  {
+    return $this->having(SQL::raw($condition, $bindings));
+  }
+
+  public function orHavingRaw(
+    string $condition,
+    string|int|float|array $bindings = []
+  ): static
+  {
+    return $this->orHaving(SQL::raw($condition, $bindings));
+  }
+
+  public function havingNotRaw(
+    string $condition,
+    string|int|float|array $bindings = []
+  ): static
+  {
+    return $this->havingNot(SQL::raw($condition, $bindings));
+  }
+
+  public function orHavingNotRaw(
+    string $condition,
+    string|int|float|array $bindings = []
+  ): static
+  {
+    return $this->orHavingNot(SQL::raw($condition, $bindings));
   }
 
   protected function addHaving(
