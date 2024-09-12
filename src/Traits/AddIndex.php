@@ -11,14 +11,21 @@ trait AddIndex
 
   protected array $add_index = [];
 
-  public function addIndex(string|HasBindings|array $index): static
+  public function addIndex(string|HasBindings|array $index, string $name = null): static
   {
 
-    $indexes = is_array($index) ? $index : [$index];
-
-    foreach ($indexes as $index)
+    if ($index instanceof HasBindings)
     {
       $this->add_index[] = $index;
+    }
+
+    else
+    {
+
+      $name = $name ? "$name " : "";
+
+      $this->add_index[] = "INDEX $name(" . implode(', ', (array) $index) . ")";
+
     }
 
     return $this;

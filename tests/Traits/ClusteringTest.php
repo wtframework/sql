@@ -8,10 +8,10 @@ it('can set clustering', function ()
 {
 
   expect(
-    (string) SQL::index()
+    (string) SQL::index('test')
     ->clustering()
   )
-  ->toEqual("INDEX CLUSTERING = YES");
+  ->toEqual("INDEX (test) CLUSTERING = YES");
 
 });
 
@@ -19,9 +19,9 @@ it('can set mo clustering', function ()
 {
 
   expect(
-    (string) SQL::index()
+    (string) SQL::index('test')
     ->noClustering()
   )
-  ->toEqual("INDEX CLUSTERING = NO");
+  ->toEqual("INDEX (test) CLUSTERING = NO");
 
 });

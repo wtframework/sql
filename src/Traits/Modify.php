@@ -4,24 +4,19 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
-use WTFramework\SQL\Interfaces\HasBindings;
+use WTFramework\SQL\Services\Column;
 
 trait Modify
 {
 
   protected array $modify_column = [];
 
-  public function modify(string|HasBindings|array $column): static
+  public function modify(string $name): Column
   {
 
-    $columns = is_array($column) ? $column : [$column];
+    $this->modify_column[] = $column = new Column($name);
 
-    foreach ($columns as $column)
-    {
-      $this->modify_column[] = $column;
-    }
-
-    return $this;
+    return $column;
 
   }
 
@@ -38,10 +33,7 @@ trait Modify
 
       $modify_column[] = "MODIFY COLUMN $column";
 
-      if ($column instanceof HasBindings)
-      {
-        $this->mergeBindings($column);
-      }
+      $this->mergeBindings($column);
 
     }
 

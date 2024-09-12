@@ -11,31 +11,39 @@ it('can add index', function ()
     (string) SQL::alter()
     ->addIndex('test')
   )
-  ->toEqual("ALTER TABLE ADD test");
+  ->toEqual("ALTER TABLE ADD INDEX (test)");
 
 });
 
-it('can add multiple indexes', function ()
+it('can add names index', function ()
+{
+
+  expect(
+    (string) SQL::alter()
+    ->addIndex('test', 'i1')
+  )
+  ->toEqual("ALTER TABLE ADD INDEX i1 (test)");
+
+});
+
+it('can add composite indexes', function ()
 {
 
   expect(
     (string) SQL::alter()
     ->addIndex(['test1', 'test2'])
   )
-  ->toEqual("ALTER TABLE ADD test1, ADD test2");
+  ->toEqual("ALTER TABLE ADD INDEX (test1, test2)");
 
 });
 
-it('can add bound value index', function ()
+it('can add index service', function ()
 {
 
   expect(
-    (string) $stmt = SQL::alter()
-    ->addIndex(SQL::bind('test'))
+    (string) SQL::alter()
+    ->addIndex(SQL::index('test'))
   )
-  ->toEqual("ALTER TABLE ADD ?");
-
-  expect($stmt->bindings())
-  ->toEqual(['test']);
+  ->toEqual("ALTER TABLE ADD INDEX (test)");
 
 });

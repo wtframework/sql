@@ -53,7 +53,7 @@ it('can create index using service', function ()
 
   expect(
     (string) SQL::create()
-    ->index(SQL::index()->column('test'))
+    ->index(SQL::index('test'))
   )
   ->toEqual("CREATE TABLE (INDEX (test))");
 

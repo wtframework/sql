@@ -214,11 +214,11 @@ it('can get cte', function ()
 it('can get index', function ()
 {
 
-  expect($index = SQL::index('i0'))
+  expect($index = SQL::index(['c1', 'c2'], 'i0'))
   ->toBeInstanceOf(Index::class);
 
   expect((string) $index)
-  ->toBe("INDEX i0");
+  ->toBe("INDEX i0 (c1, c2)");
 
 });
 

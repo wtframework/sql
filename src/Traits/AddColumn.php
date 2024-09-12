@@ -4,24 +4,19 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
-use WTFramework\SQL\Interfaces\HasBindings;
+use WTFramework\SQL\Services\Column;
 
 trait AddColumn
 {
 
   protected array $add_column = [];
 
-  public function addColumn(string|HasBindings|array $column): static
+  public function addColumn(string $name): Column
   {
 
-    $columns = is_array($column) ? $column : [$column];
+    $this->add_column[] = $column = new Column($name);
 
-    foreach ($columns as $column)
-    {
-      $this->add_column[] = $column;
-    }
-
-    return $this;
+    return $column;
 
   }
 
@@ -36,12 +31,9 @@ trait AddColumn
     foreach ($this->add_column as $column)
     {
 
-      $add_column[] = "ADD $column";
+      $add_column[] = "ADD COLUMN $column";
 
-      if ($column instanceof HasBindings)
-      {
-        $this->mergeBindings($column);
-      }
+      $this->mergeBindings($column);
 
     }
 

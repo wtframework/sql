@@ -8,11 +8,11 @@ it('can get index', function ()
 {
 
   expect(
-    (string) SQL::index('i0')
+    (string) SQL::index('c1', 'i1')
     ->fullText()
     ->ifNotExists()
     ->using('BTREE')
-    ->column('c1')
+    ->column('c2')
     ->keyBlockSize(1)
     ->withParser('parser')
     ->comment("'comment' comment")
@@ -26,9 +26,9 @@ it('can get index', function ()
     "FULLTEXT "
   . "INDEX "
   . "IF NOT EXISTS "
-  . "i0 "
+  . "i1 "
   . "USING BTREE "
-  . "(c1) "
+  . "(c1, c2) "
   . "KEY_BLOCK_SIZE 1 "
   . "WITH PARSER parser "
   . "COMMENT '''comment'' comment' "
@@ -39,7 +39,7 @@ it('can get index', function ()
   . "SECONDARY_ENGINE_ATTRIBUTE 'b'"
   );
 
-  expect((string) SQL::index()->spatial())
-  ->toBe("SPATIAL INDEX");
+  expect((string) SQL::index('c1')->spatial())
+  ->toBe("SPATIAL INDEX (c1)");
 
 });

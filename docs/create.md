@@ -60,7 +60,7 @@ $stmt->index(['c1', 'c2']);
 \
 An [`Index`](services/index.md) service class can also be passed, providing a fluent interface for generating indexes.
 ```php
-$stmt->index(SQL::index()->column('c1'));
+$stmt->index(SQL::index(['c1', 'c2'], 'index_name'));
 ```
 
 ## Foreign keys

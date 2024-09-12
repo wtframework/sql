@@ -8,10 +8,10 @@ it('can set ignored', function ()
 {
 
   expect(
-    (string) SQL::index()
+    (string) SQL::index('test')
     ->ignored()
   )
-  ->toEqual("INDEX IGNORED");
+  ->toEqual("INDEX (test) IGNORED");
 
 });
 
@@ -19,9 +19,9 @@ it('can set not ignored', function ()
 {
 
   expect(
-    (string) SQL::index()
+    (string) SQL::index('test')
     ->notIgnored()
   )
-  ->toEqual("INDEX NOT IGNORED");
+  ->toEqual("INDEX (test) NOT IGNORED");
 
 });

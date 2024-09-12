@@ -40,7 +40,13 @@ class Index implements HasBindings
   use Visibility;
   use WithParser;
 
-  public function __construct(public readonly string $name = '') {}
+  public function __construct(
+    string|array $column,
+    public readonly string $name = ''
+  )
+  {
+    $this->column($column);
+  }
 
   protected function toArray(): array
   {

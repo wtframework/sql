@@ -26,11 +26,7 @@ it('can alter', function ()
     ->forValuesDefault()
     ->detachPartition('test')
     ->wait(10)
-    ->addColumn('test')
-    ->addConstraint('test')
     ->addIndex('test')
-    ->change('test', 'test')
-    ->modify('test')
     ->renameColumn('test', 'test')
     ->renameConstraint('test', 'test')
     ->renameIndex('test', 'test')
@@ -137,11 +133,7 @@ it('can alter', function ()
   . "FOR VALUES DEFAULT "
   . "DETACH PARTITION test "
   . "WAIT 10 "
-  . "ADD test, "
-  . "ADD CONSTRAINT test, "
-  . "ADD test, "
-  . "CHANGE COLUMN test test, "
-  . "MODIFY COLUMN test, "
+  . "ADD INDEX (test), "
   . "RENAME COLUMN test TO test, "
   . "RENAME CONSTRAINT test TO test, "
   . "RENAME INDEX test TO test, "

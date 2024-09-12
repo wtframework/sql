@@ -26,14 +26,9 @@ $stmt->renameTo('t2');
 ```
 
 ## Add column
-Use the `addColumn` method to add a column.
+Use the `addColumn` method to add a column passing the colum name. This will return a [`Column`](services/column.md) service class, providing a fluent interface for generating columns.
 ```php
-$stmt->addColumn('c1 INT');
-```
-\
-A [`Column`](services/column.md) service class can also be passed, providing a fluent interface for generating columns.
-```php
-$stmt->addColumn(SQL::column('c1')->int());
+$stmt->addColumn('c1');
 ```
 
 ## Rename column
@@ -71,15 +66,15 @@ $stmt->columnSetCompression('c1', $method);
 ```
 
 ## Change column
-Use the `change` or `changeIfExists` methods to change a column definition.
+Use the `change` method to modify a column passing the current name as the first parameter and the new name as the second parameter. This will return a [`Column`](services/column.md) service class, providing a fluent interface for changing columns.
 ```php
-$stmt->change('c1', SQL::column('c1')->int());
+$stmt->change('c1', 'c2');
 ```
 
 ## Modify column
-Use the `modify` method to modify column definition.
+Use the `modify` method to modify a column passing the column name. This will return a [`Column`](services/column.md) service class, providing a fluent interface for modifying columns.
 ```php
-$stmt->modify(SQL::column('c1')->int());
+$stmt->modify('c1');
 ```
 
 ## Drop column
@@ -97,14 +92,9 @@ $stmt->dropColumnIfExistsCascade('c1');
 ```
 
 ## Add constraint
-Use the `addConstraint` method to add a constraint.
+Use the `addConstraint` method to add a constraint passing the constraint name. This will return a [`Constraint`](services/constraint.md) service class, providing a fluent interface for generating constraints.
 ```php
-$stmt->addConstraint('CONSTRAINT a CHECK (c1 < c2)');
-```
-\
-A [`Constraint`](services/constraint.md) service class can also be passed, providing a fluent interface for generating constraints.
-```php
-$stmt->addConstraint(SQL::constraint('a')->check('c1 < c2'));
+$stmt->addConstraint('c1');
 ```
 
 ## Drop constraint
@@ -129,14 +119,24 @@ $stmt->dropForeignKeyIfExists(['fk1', 'fk2']);
 ```
 
 ## Add index
-Use the `addIndex` method to add an index.
+Use the `addIndex` method to add an index passing the column name.
 ```php
-$stmt->addIndex('INDEX (c1)');
+$stmt->addIndex('c1');
+```
+\
+An array can be password for composite indexes.
+```php
+$stmt->addIndex(['c1', 'c2']);
+```
+\
+You may pass as the second parameter the index name.
+```php
+$stmt->addIndex('c1', 'index_name');
 ```
 \
 An [`Index`](services/index.md) service class can also be passed, providing a fluent interface for generating indexes.
 ```php
-$stmt->addIndex(SQL::index()->column('c1'));
+$stmt->addIndex(SQL::index('c1'));
 ```
 
 ## Alter index

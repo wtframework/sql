@@ -8,10 +8,10 @@ it('can set invisible', function ()
 {
 
   expect(
-    (string) SQL::index()
+    (string) SQL::index('test')
     ->invisible()
   )
-  ->toEqual("INDEX INVISIBLE");
+  ->toEqual("INDEX (test) INVISIBLE");
 
 });
 
@@ -19,10 +19,10 @@ it('can set visible', function ()
 {
 
   expect(
-    (string) SQL::index()
+    (string) SQL::index('test')
     ->visible()
   )
-  ->toEqual("INDEX VISIBLE");
+  ->toEqual("INDEX (test) VISIBLE");
 
 });
 
@@ -30,9 +30,9 @@ it('can set not invisible', function ()
 {
 
   expect(
-    (string) SQL::index()
+    (string) SQL::index('test')
     ->notInvisible()
   )
-  ->toEqual("INDEX NOT INVISIBLE");
+  ->toEqual("INDEX (test) NOT INVISIBLE");
 
 });

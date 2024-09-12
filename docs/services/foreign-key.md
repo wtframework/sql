@@ -8,7 +8,7 @@ use WTFramework\SQL\SQL;
 $foreign_key = SQL::foreignKey('c1');
 ```
 \
-You may optionally add an index name
+Call the `index` method to set the index name.
 ```php
 $foreign_key->index('i1');
 ```

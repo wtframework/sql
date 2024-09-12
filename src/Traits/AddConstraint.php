@@ -4,24 +4,19 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
-use WTFramework\SQL\Interfaces\HasBindings;
+use WTFramework\SQL\Services\Constraint;
 
 trait AddConstraint
 {
 
   protected array $add_constraint = [];
 
-  public function addConstraint(string|HasBindings|array $constraint): static
+  public function addConstraint(string $name = ''): Constraint
   {
 
-    $constraints = is_array($constraint) ? $constraint : [$constraint];
+    $this->add_constraint[] = $constraint = new Constraint($name);
 
-    foreach ($constraints as $constraint)
-    {
-      $this->add_constraint[] = $constraint;
-    }
-
-    return $this;
+    return $constraint;
 
   }
 
@@ -36,12 +31,9 @@ trait AddConstraint
     foreach ($this->add_constraint as $constraint)
     {
 
-      $add_constraint[] = "ADD CONSTRAINT $constraint";
+      $add_constraint[] = "ADD $constraint";
 
-      if ($constraint instanceof HasBindings)
-      {
-        $this->mergeBindings($constraint);
-      }
+      $this->mergeBindings($constraint);
 
     }
 

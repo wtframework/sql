@@ -10,13 +10,13 @@ it('can create foreign key', function ()
 
   $stmt = SQL::create();
 
-  expect($foreign_key = $stmt->foreignKey('c1'))
+  expect($foreign_key = $stmt->foreignKey('test'))
   ->toBeInstanceOf(ForeignKey::class);
 
   expect((string) $foreign_key)
-  ->toEqual("FOREIGN KEY (c1)");
+  ->toEqual("FOREIGN KEY (test)");
 
   expect((string) $stmt)
-  ->toEqual("CREATE TABLE (FOREIGN KEY (c1))");
+  ->toEqual("CREATE TABLE (FOREIGN KEY (test))");
 
 });

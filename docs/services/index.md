@@ -1,23 +1,16 @@
 # What the Framework?! SQL
 
 ## Index
-The `Index` service class provides a fluent interface for generating indexes.
+The `Index` service class provides a fluent interface for generating indexes. Pass as the first parameter a string or array of column names
 ```php
 use WTFramework\SQL\SQL;
 
-$index = SQL::index();
+$index = SQL::index('c1');
 ```
 \
-You may optionally pass an index name to this method.
+You may optionally pass an index name as the second parameter.
 ```php
-$stmt = SQL::index('i1');
-```
-
-## Columns
-Use the `column` method to specify the column(s).
-```php
-$index->column('c1');
-$index->column(['c2', 'c3']);
+$stmt = SQL::index('c1', 'i1');
 ```
 
 ## Miscellaneous methods

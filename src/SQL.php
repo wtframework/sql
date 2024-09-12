@@ -121,9 +121,12 @@ abstract class SQL
     return new ForeignKey($column);
   }
 
-  public static function index(string $name = ''): Index
+  public static function index(
+    string|array $column,
+    string $name = ''
+  ): Index
   {
-    return new Index($name);
+    return new Index($column, $name);
   }
 
   public static function outfile(string $path): Outfile
