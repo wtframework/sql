@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
+use WTFramework\SQL\SQL;
+
 trait Connection
 {
 
@@ -12,7 +14,7 @@ trait Connection
   public function connection(string $connection): static
   {
 
-    $connection = str_replace("'", "''", $connection);
+    $connection = SQL::escape($connection);
 
     $this->table_connection = "CONNECTION '$connection'";
 

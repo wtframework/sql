@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
+use WTFramework\SQL\SQL;
+
 trait EngineAttribute
 {
 
@@ -12,7 +14,7 @@ trait EngineAttribute
   public function engineAttribute(string $engine_attribute): static
   {
 
-    $engine_attribute = str_replace("'", "''", $engine_attribute);
+    $engine_attribute = SQL::escape($engine_attribute);
 
     $this->engine_attribute = "ENGINE_ATTRIBUTE '$engine_attribute'";
 

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
+use WTFramework\SQL\SQL;
+
 trait Password
 {
 
@@ -12,7 +14,7 @@ trait Password
   public function password(string $password): static
   {
 
-    $password = str_replace("'", "''", $password);
+    $password = SQL::escape($password);
 
     $this->password = "PASSWORD '$password'";
 

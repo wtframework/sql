@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
+use WTFramework\SQL\SQL;
+
 trait Fields
 {
 
@@ -12,7 +14,7 @@ trait Fields
   public function fieldsTerminatedBy(string $string): static
   {
 
-    $string = str_replace("'", "''", $string);
+    $string = SQL::escape($string);
 
     $this->fields['terminated_by'] = "TERMINATED BY '$string'";
 
@@ -28,7 +30,7 @@ trait Fields
 
     $type = $optionally ? 'OPTIONALLY ' : '';
 
-    $string = str_replace("'", "''", $string);
+    $string = SQL::escape($string);
 
     $this->fields['enclosed_by'] = "{$type}ENCLOSED BY '$string'";
 
@@ -49,7 +51,7 @@ trait Fields
   public function fieldsEscapedBy(string $string): static
   {
 
-    $string = str_replace("'", "''", $string);
+    $string = SQL::escape($string);
 
     $this->fields['escaped_by'] = "ESCAPED BY '$string'";
 

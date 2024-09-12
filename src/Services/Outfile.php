@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Services;
 
+use WTFramework\SQL\SQL;
 use WTFramework\SQL\Traits\CharacterSet;
 use WTFramework\SQL\Traits\Fields;
 use WTFramework\SQL\Traits\Lines;
@@ -22,7 +23,7 @@ class Outfile
   protected function getPath(): string
   {
 
-    $path = str_replace("'", "''", $this->path);
+    $path = SQL::escape($this->path);
 
     return "'$path'";
 

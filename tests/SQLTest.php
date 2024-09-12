@@ -320,3 +320,11 @@ it('can get window', function ()
   ->toBe('w');
 
 });
+
+it('can escape string', function ()
+{
+
+  expect(SQL::escape("'test'"))
+  ->toBe("''test''");
+
+});

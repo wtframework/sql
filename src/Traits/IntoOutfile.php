@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace WTFramework\SQL\Traits;
 
 use WTFramework\SQL\Services\Outfile;
+use WTFramework\SQL\SQL;
 
 trait IntoOutfile
 {
@@ -16,7 +17,7 @@ trait IntoOutfile
 
     if (is_string($path))
     {
-      $path = "'" . str_replace("'", "''", $path) . "'";
+      $path = "'" . SQL::escape($path) . "'";
     }
 
     $this->into_outfile = "INTO OUTFILE $path";

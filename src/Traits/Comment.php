@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
+use WTFramework\SQL\SQL;
+
 trait Comment
 {
 
@@ -12,7 +14,7 @@ trait Comment
   public function comment(string $comment): static
   {
 
-    $comment = str_replace("'", "''", $comment);
+    $comment = SQL::escape($comment);
 
     $this->comment = "COMMENT '$comment'";
 

@@ -169,4 +169,9 @@ abstract class SQL
     return new Window($name);
   }
 
+  public static function escape(string $string): string
+  {
+    return str_replace("'", "''", $string);
+  }
+
 }

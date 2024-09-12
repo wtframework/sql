@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
+use WTFramework\SQL\SQL;
+
 trait DataDirectory
 {
 
@@ -12,7 +14,7 @@ trait DataDirectory
   public function dataDirectory(string $data_directory): static
   {
 
-    $data_directory = str_replace("'", "''", $data_directory);
+    $data_directory = SQL::escape($data_directory);
 
     $this->data_directory = "DATA DIRECTORY '$data_directory'";
 

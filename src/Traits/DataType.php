@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace WTFramework\SQL\Traits;
 
 use WTFramework\SQL\Interfaces\HasBindings;
+use WTFramework\SQL\SQL;
 
 trait DataType
 {
@@ -870,7 +871,7 @@ trait DataType
 
       if (is_string($value))
       {
-        $value = "'" . str_replace("'", "''", $value) . "'";
+        $value = "'" . SQL::escape($value) . "'";
       }
 
       $this->values[] = $value;

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
+use WTFramework\SQL\SQL;
+
 trait Lines
 {
 
@@ -12,7 +14,7 @@ trait Lines
   public function linesStartingBy(string $string): static
   {
 
-    $string = str_replace("'", "''", $string);
+    $string = SQL::escape($string);
 
     $this->lines['starting_by'] = "STARTING BY '$string'";
 
@@ -23,7 +25,7 @@ trait Lines
   public function linesTerminatedBy(string $string): static
   {
 
-    $string = str_replace("'", "''", $string);
+    $string = SQL::escape($string);
 
     $this->lines['terminated_by'] = "TERMINATED BY '$string'";
 

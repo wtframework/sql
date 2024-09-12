@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
+use WTFramework\SQL\SQL;
+
 trait IndexDirectory
 {
 
@@ -12,7 +14,7 @@ trait IndexDirectory
   public function indexDirectory(string $index_directory): static
   {
 
-    $index_directory = str_replace("'", "''", $index_directory);
+    $index_directory = SQL::escape($index_directory);
 
     $this->index_directory = "INDEX DIRECTORY '$index_directory'";
 

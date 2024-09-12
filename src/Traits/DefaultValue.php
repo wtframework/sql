@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
+use WTFramework\SQL\SQL;
+
 trait DefaultValue
 {
 
@@ -14,7 +16,7 @@ trait DefaultValue
 
     if (is_string($expression))
     {
-      $expression = "'" . str_replace("'", "''", $expression) . "'";
+      $expression = "'" . SQL::escape($expression) . "'";
     }
 
     $this->default = $expression;

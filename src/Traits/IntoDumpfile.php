@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
+use WTFramework\SQL\SQL;
+
 trait IntoDumpfile
 {
 
@@ -12,7 +14,7 @@ trait IntoDumpfile
   public function intoDumpfile(string $path): static
   {
 
-    $path = str_replace("'", "''", $path);
+    $path = SQL::escape($path);
 
     $this->into_dumpfile = "INTO DUMPFILE '$path'";
 
