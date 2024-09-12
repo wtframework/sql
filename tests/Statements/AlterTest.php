@@ -115,7 +115,6 @@ it('can alter', function ()
     ->partitions(1)
     ->subpartitionByHash('test')
     ->subpartitions(2)
-    ->partition('test')
     ->orderBy('test')
     ->if('test')
     ->else('test')
@@ -226,8 +225,7 @@ it('can alter', function ()
   . "PARTITION BY HASH(test) "
   . "PARTITIONS 1 "
   . "SUBPARTITION BY HASH(test) "
-  . "SUBPARTITIONS 2 "
-  . "(test), "
+  . "SUBPARTITIONS 2, "
   . "ORDER BY test "
   . "ELSE test"
   );
@@ -239,25 +237,5 @@ it('can alter with table name', function ()
 
   expect((string) new Alter('test'))
   ->toBe("ALTER TABLE test");
-
-});
-
-it('can add column', function ()
-{
-
-  $sql = new Alter;
-
-  $column = $sql->tinyInt("test1", 1);
-
-  expect($column)
-  ->toBeInstanceOf(Column::class);
-
-  expect((string) $column)
-  ->toEqual('test1 TINYINT (1)');
-
-  $sql->varchar("test2", 255);
-
-  expect((string) $sql)
-  ->toEqual('ALTER TABLE ADD test1 TINYINT (1), ADD test2 VARCHAR (255)');
 
 });

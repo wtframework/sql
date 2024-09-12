@@ -26,10 +26,10 @@ trait RenameIndex
 
   }
 
-  protected function arrayRenameIndex(array $indexs): static
+  protected function arrayRenameIndex(array $indexes): static
   {
 
-    foreach ($indexs as $index => $name)
+    foreach ($indexes as $index => $name)
     {
 
       $this->renameIndex(

@@ -2,26 +2,21 @@
 
 declare(strict_types=1);
 
+use WTFramework\SQL\Services\Partition;
 use WTFramework\SQL\SQL;
 
-it('can partition', function ()
+it('can create partition', function ()
 {
 
-  expect(
-    (string) SQL::create()
-    ->partition('test')
-  )
-  ->toEqual("CREATE TABLE (test)");
+  $stmt = SQL::create();
 
-});
+  expect($partition = $stmt->partition('test'))
+  ->toBeInstanceOf(Partition::class);
 
-it('can partition multiple', function ()
-{
+  expect((string) $partition)
+  ->toEqual("PARTITION test");
 
-  expect(
-    (string) SQL::create()
-    ->partition(['test1', 'test2'])
-  )
-  ->toEqual("CREATE TABLE (test1, test2)");
+  expect((string) $stmt)
+  ->toEqual("CREATE TABLE (PARTITION test)");
 
 });

@@ -2,40 +2,21 @@
 
 declare(strict_types=1);
 
+use WTFramework\SQL\Services\Constraint;
 use WTFramework\SQL\SQL;
 
 it('can create constraint', function ()
 {
 
-  expect(
-    (string) SQL::create()
-    ->constraint('test')
-  )
-  ->toEqual("CREATE TABLE (test)");
+  $stmt = SQL::create();
 
-});
+  expect($constraint = $stmt->constraint('test'))
+  ->toBeInstanceOf(Constraint::class);
 
-it('can create multiple constraints', function ()
-{
+  expect((string) $constraint)
+  ->toEqual("CONSTRAINT test");
 
-  expect(
-    (string) SQL::create()
-    ->constraint(['test1', 'test2'])
-  )
-  ->toEqual("CREATE TABLE (test1, test2)");
-
-});
-
-it('can create bound value constraint', function ()
-{
-
-  expect(
-    (string) $stmt = SQL::create()
-    ->constraint(SQL::bind('test'))
-  )
-  ->toEqual("CREATE TABLE (?)");
-
-  expect($stmt->bindings())
-  ->toEqual(['test']);
+  expect((string) $stmt)
+  ->toEqual("CREATE TABLE (CONSTRAINT test)");
 
 });

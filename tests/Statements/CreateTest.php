@@ -18,8 +18,6 @@ it('can create', function ()
     ->ifNotExists()
     ->of('test')
     ->table('t1')
-    ->column('c1')
-    ->constraint('a')
     ->primaryKey('p1')
     ->unique('u1')
     ->index('c2')
@@ -70,7 +68,6 @@ it('can create', function ()
     ->partitions(1)
     ->subpartitionByHash('test')
     ->subpartitions(2)
-    ->partition('test')
     ->ignore()
     ->as("SELECT")
     ->like('t2')
@@ -94,8 +91,6 @@ it('can create', function ()
   . "t1 "
   . "OF test "
   . "("
-  . "c1, "
-  . "a, "
   . "PRIMARY KEY (p1), "
   . "UNIQUE (u1), "
   . "INDEX (c2), "
@@ -147,7 +142,6 @@ it('can create', function ()
   . "PARTITIONS 1 "
   . "SUBPARTITION BY HASH(test) "
   . "SUBPARTITIONS 2 "
-  . "(test) "
   . "IGNORE "
   . "AS SELECT "
   . "LIKE t2 "

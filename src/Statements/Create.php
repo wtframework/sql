@@ -20,6 +20,7 @@ use WTFramework\SQL\Traits\Connection;
 use WTFramework\SQL\Traits\Constraint;
 use WTFramework\SQL\Traits\CreateColumn;
 use WTFramework\SQL\Traits\CreateDataType;
+use WTFramework\SQL\Traits\CreateForeignKey;
 use WTFramework\SQL\Traits\CreateIndex;
 use WTFramework\SQL\Traits\CreateWith;
 use WTFramework\SQL\Traits\DataDirectory;
@@ -96,6 +97,7 @@ class Create extends Statement
   use Constraint;
   use CreateColumn;
   use CreateDataType;
+  use CreateForeignKey;
   use CreateIndex;
   use CreateWith;
   use DataDirectory;
@@ -184,6 +186,7 @@ class Create extends Statement
         $this->getPrimaryKey(),
         $this->getUnique(),
         $this->getIndex(),
+        $this->getForeignKey(),
         $this->getPeriodForSystemTime(),
         $this->getCheck(),
       ]))) ? "($definition)" : '',

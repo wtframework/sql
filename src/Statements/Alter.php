@@ -31,7 +31,6 @@ use WTFramework\SQL\Traits\Compression;
 use WTFramework\SQL\Traits\Connection;
 use WTFramework\SQL\Traits\ConvertTable;
 use WTFramework\SQL\Traits\ConvertToCharacterSet;
-use WTFramework\SQL\Traits\CreateDataType;
 use WTFramework\SQL\Traits\DataDirectory;
 use WTFramework\SQL\Traits\DelayKeyWrite;
 use WTFramework\SQL\Traits\DetachPartition;
@@ -141,7 +140,6 @@ class Alter extends Statement
   use Connection;
   use ConvertTable;
   use ConvertToCharacterSet;
-  use CreateDataType;
   use DataDirectory;
   use DelayKeyWrite;
   use DetachPartition;

@@ -6,497 +6,475 @@ namespace WTFramework\SQL\Traits;
 
 use WTFramework\SQL\Interfaces\HasBindings;
 use WTFramework\SQL\Services\Column;
-use WTFramework\SQL\SQL;
-use WTFramework\SQL\Statements\Alter;
 
 trait CreateDataType
 {
 
-  protected function createColumn(string $name): Column
+  public function tinyInt(string $name, int $length = null): Column
   {
-
-    $column = SQL::column($name);
-
-    if ($this instanceof Alter)
-    {
-      $this->addColumn($column);
-    }
-
-    else
-    {
-      $this->column($column);
-    }
-
-    return $column;
-
+    return $this->column($name)->tinyInt($length);
   }
 
-  public function tinyInt(string $column, int $length = null): Column
+  public function smallInt(string $name, int $length = null): Column
   {
-    return $this->createColumn($column)->tinyInt($length);
-
+    return $this->column($name)->smallInt($length);
   }
 
-  public function smallInt(string $column, int $length = null): Column
+  public function mediumInt(string $name, int $length = null): Column
   {
-    return $this->createColumn($column)->smallInt($length);
+    return $this->column($name)->mediumInt($length);
   }
 
-  public function mediumInt(string $column, int $length = null): Column
+  public function int(string $name, int $length = null): Column
   {
-    return $this->createColumn($column)->mediumInt($length);
+    return $this->column($name)->int($length);
   }
 
-  public function int(string $column, int $length = null): Column
+  public function bigInt(string $name, int $length = null): Column
   {
-    return $this->createColumn($column)->int($length);
-  }
-
-  public function bigInt(string $column, int $length = null): Column
-  {
-    return $this->createColumn($column)->bigInt($length);
+    return $this->column($name)->bigInt($length);
   }
 
   public function decimal(
-    string $column,
+    string $name,
     int $length = null,
     int $decimals = null
   ): Column
   {
-    return $this->createColumn($column)->decimal($length, $decimals);
+    return $this->column($name)->decimal($length, $decimals);
   }
 
   public function float(
-    string $column,
+    string $name,
     int $length = null,
     int $decimals = null
   ): Column
   {
-    return $this->createColumn($column)->float($length, $decimals);
+    return $this->column($name)->float($length, $decimals);
   }
 
   public function double(
-    string $column,
+    string $name,
     int $length = null,
     int $decimals = null
   ): Column
   {
-    return $this->createColumn($column)->double($length, $decimals);
+    return $this->column($name)->double($length, $decimals);
   }
 
-  public function bit(string $column, int $length = null): Column
+  public function bit(string $name, int $length = null): Column
   {
-    return $this->createColumn($column)->bit($length);
+    return $this->column($name)->bit($length);
   }
 
-  public function binary(string $column, int $length): Column
+  public function binary(string $name, int $length): Column
   {
-    return $this->createColumn($column)->binary($length);
+    return $this->column($name)->binary($length);
   }
 
-  public function blob(string $column, int $length = null): Column
+  public function blob(string $name, int $length = null): Column
   {
-    return $this->createColumn($column)->blob($length);
+    return $this->column($name)->blob($length);
   }
 
-  public function char(string $column, int $length = null): Column
+  public function char(string $name, int $length = null): Column
   {
-    return $this->createColumn($column)->char($length);
+    return $this->column($name)->char($length);
   }
 
-  public function enum(string $column, string|HasBindings|array $values = null): Column
+  public function enum(string $name, string|HasBindings|array $values = null): Column
   {
-    return $this->createColumn($column)->enum($values);
+    return $this->column($name)->enum($values);
   }
 
-  public function inet4(string $column): Column
+  public function inet4(string $name): Column
   {
-    return $this->createColumn($column)->inet4();
+    return $this->column($name)->inet4();
   }
 
-  public function inet6(string $column): Column
+  public function inet6(string $name): Column
   {
-    return $this->createColumn($column)->inet6();
+    return $this->column($name)->inet6();
   }
 
-  public function mediumBlob(string $column): Column
+  public function mediumBlob(string $name): Column
   {
-    return $this->createColumn($column)->mediumBlob();
+    return $this->column($name)->mediumBlob();
   }
 
-  public function mediumText(string $column): Column
+  public function mediumText(string $name): Column
   {
-    return $this->createColumn($column)->mediumText();
+    return $this->column($name)->mediumText();
   }
 
-  public function longBlob(string $column): Column
+  public function longBlob(string $name): Column
   {
-    return $this->createColumn($column)->longBlob();
+    return $this->column($name)->longBlob();
   }
 
-  public function longText(string $column): Column
+  public function longText(string $name): Column
   {
-    return $this->createColumn($column)->longText();
+    return $this->column($name)->longText();
   }
 
-  public function text(string $column, int $length = null): Column
+  public function text(string $name, int $length = null): Column
   {
-    return $this->createColumn($column)->text($length);
+    return $this->column($name)->text($length);
   }
 
-  public function tinyBlob(string $column): Column
+  public function tinyBlob(string $name): Column
   {
-    return $this->createColumn($column)->tinyBlob();
+    return $this->column($name)->tinyBlob();
   }
 
-  public function tinyText(string $column): Column
+  public function tinyText(string $name): Column
   {
-    return $this->createColumn($column)->tinyText();
+    return $this->column($name)->tinyText();
   }
 
-  public function varbinary(string $column, int $length = null): Column
+  public function varbinary(string $name, int $length = null): Column
   {
-    return $this->createColumn($column)->varbinary($length);
+    return $this->column($name)->varbinary($length);
   }
 
-  public function varchar(string $column, int $length = null): Column
+  public function varchar(string $name, int $length = null): Column
   {
-    return $this->createColumn($column)->varchar($length);
+    return $this->column($name)->varchar($length);
   }
 
-  public function set(string $column, string|HasBindings|array $values = null): Column
+  public function set(string $name, string|HasBindings|array $values = null): Column
   {
-    return $this->createColumn($column)->set($values);
+    return $this->column($name)->set($values);
   }
 
-  public function uuid(string $column): Column
+  public function uuid(string $name): Column
   {
-    return $this->createColumn($column)->uuid();
+    return $this->column($name)->uuid();
   }
 
-  public function date(string $column): Column
+  public function date(string $name): Column
   {
-    return $this->createColumn($column)->date();
+    return $this->column($name)->date();
   }
 
-  public function time(string $column, int $precision = null): Column
+  public function time(string $name, int $precision = null): Column
   {
-    return $this->createColumn($column)->time($precision);
+    return $this->column($name)->time($precision);
   }
 
-  public function datetime(string $column, int $precision = null): Column
+  public function datetime(string $name, int $precision = null): Column
   {
-    return $this->createColumn($column)->datetime($precision);
+    return $this->column($name)->datetime($precision);
   }
 
-  public function timestamp(string $column, int $precision = null): Column
+  public function timestamp(string $name, int $precision = null): Column
   {
-    return $this->createColumn($column)->timestamp($precision);
+    return $this->column($name)->timestamp($precision);
   }
 
-  public function year(string $column, int $length = null): Column
+  public function year(string $name, int $length = null): Column
   {
-    return $this->createColumn($column)->year($length);
+    return $this->column($name)->year($length);
   }
 
-  public function point(string $column): Column
+  public function point(string $name): Column
   {
-    return $this->createColumn($column)->point();
+    return $this->column($name)->point();
   }
 
-  public function lineString(string $column): Column
+  public function lineString(string $name): Column
   {
-    return $this->createColumn($column)->lineString();
+    return $this->column($name)->lineString();
   }
 
-  public function polygon(string $column): Column
+  public function polygon(string $name): Column
   {
-    return $this->createColumn($column)->polygon();
+    return $this->column($name)->polygon();
   }
 
-  public function multiPoint(string $column): Column
+  public function multiPoint(string $name): Column
   {
-    return $this->createColumn($column)->multiPoint();
+    return $this->column($name)->multiPoint();
   }
 
-  public function multiLineString(string $column): Column
+  public function multiLineString(string $name): Column
   {
-    return $this->createColumn($column)->multiLineString();
+    return $this->column($name)->multiLineString();
   }
 
-  public function multiPolygon(string $column): Column
+  public function multiPolygon(string $name): Column
   {
-    return $this->createColumn($column)->multiPolygon();
+    return $this->column($name)->multiPolygon();
   }
 
-  public function geometryCollection(string $column): Column
+  public function geometryCollection(string $name): Column
   {
-    return $this->createColumn($column)->geometryCollection();
+    return $this->column($name)->geometryCollection();
   }
 
-  public function json(string $column): Column
+  public function json(string $name): Column
   {
-    return $this->createColumn($column)->json();
+    return $this->column($name)->json();
   }
 
-  public function integer(string $column, int $length = null): Column
+  public function integer(string $name, int $length = null): Column
   {
-    return $this->createColumn($column)->integer($length);
+    return $this->column($name)->integer($length);
   }
 
-  public function any(string $column): Column
+  public function any(string $name): Column
   {
-    return $this->createColumn($column)->any();
+    return $this->column($name)->any();
   }
 
-  public function bigSerial(string $column): Column
+  public function bigSerial(string $name): Column
   {
-    return $this->createColumn($column)->bigSerial();
+    return $this->column($name)->bigSerial();
   }
 
-  public function varbit(string $column, int $length = null): Column
+  public function varbit(string $name, int $length = null): Column
   {
-    return $this->createColumn($column)->varbit($length);
+    return $this->column($name)->varbit($length);
   }
 
-  public function boolean(string $column): Column
+  public function boolean(string $name): Column
   {
-    return $this->createColumn($column)->boolean();
+    return $this->column($name)->boolean();
   }
 
-  public function box(string $column): Column
+  public function box(string $name): Column
   {
-    return $this->createColumn($column)->box();
+    return $this->column($name)->box();
   }
 
-  public function bytea(string $column): Column
+  public function bytea(string $name): Column
   {
-    return $this->createColumn($column)->bytea();
+    return $this->column($name)->bytea();
   }
 
-  public function cidr(string $column): Column
+  public function cidr(string $name): Column
   {
-    return $this->createColumn($column)->cidr();
+    return $this->column($name)->cidr();
   }
 
-  public function circle(string $column): Column
+  public function circle(string $name): Column
   {
-    return $this->createColumn($column)->circle();
+    return $this->column($name)->circle();
   }
 
-  public function interval(string $column, int $precision = null): Column
+  public function interval(string $name, int $precision = null): Column
   {
-    return $this->createColumn($column)->interval($precision);
+    return $this->column($name)->interval($precision);
   }
 
-  public function intervalYear(string $column): Column
+  public function intervalYear(string $name): Column
   {
-    return $this->createColumn($column)->intervalYear();
+    return $this->column($name)->intervalYear();
   }
 
-  public function intervalMonth(string $column): Column
+  public function intervalMonth(string $name): Column
   {
-    return $this->createColumn($column)->intervalMonth();
+    return $this->column($name)->intervalMonth();
   }
 
-  public function intervalDay(string $column): Column
+  public function intervalDay(string $name): Column
   {
-    return $this->createColumn($column)->intervalDay();
+    return $this->column($name)->intervalDay();
   }
 
-  public function intervalHour(string $column): Column
+  public function intervalHour(string $name): Column
   {
-    return $this->createColumn($column)->intervalHour();
+    return $this->column($name)->intervalHour();
   }
 
-  public function intervalMinute(string $column): Column
+  public function intervalMinute(string $name): Column
   {
-    return $this->createColumn($column)->intervalMinute();
+    return $this->column($name)->intervalMinute();
   }
 
-  public function intervalSecond(string $column, int $precision = null): Column
+  public function intervalSecond(string $name, int $precision = null): Column
   {
-    return $this->createColumn($column)->intervalSecond($precision);
+    return $this->column($name)->intervalSecond($precision);
   }
 
-  public function intervalYearToMonth(string $column): Column
+  public function intervalYearToMonth(string $name): Column
   {
-    return $this->createColumn($column)->intervalYearToMonth();
+    return $this->column($name)->intervalYearToMonth();
   }
 
-  public function intervalDayToHour(string $column): Column
+  public function intervalDayToHour(string $name): Column
   {
-    return $this->createColumn($column)->intervalDayToHour();
+    return $this->column($name)->intervalDayToHour();
   }
 
-  public function intervalDayToMinute(string $column): Column
+  public function intervalDayToMinute(string $name): Column
   {
-    return $this->createColumn($column)->intervalDayToMinute();
+    return $this->column($name)->intervalDayToMinute();
   }
 
-  public function intervalDayToSecond(string $column, int $precision = null): Column
+  public function intervalDayToSecond(string $name, int $precision = null): Column
   {
-    return $this->createColumn($column)->intervalDayToSecond($precision);
+    return $this->column($name)->intervalDayToSecond($precision);
   }
 
-  public function intervalHourToMinute(string $column): Column
+  public function intervalHourToMinute(string $name): Column
   {
-    return $this->createColumn($column)->intervalHourToMinute();
+    return $this->column($name)->intervalHourToMinute();
   }
 
-  public function intervalHourToSecond(string $column, int $precision = null): Column
+  public function intervalHourToSecond(string $name, int $precision = null): Column
   {
-    return $this->createColumn($column)->intervalHourToSecond($precision);
+    return $this->column($name)->intervalHourToSecond($precision);
   }
 
-  public function intervalMinuteToSecond(string $column, int $precision = null): Column
+  public function intervalMinuteToSecond(string $name, int $precision = null): Column
   {
-    return $this->createColumn($column)->intervalMinuteToSecond($precision);
+    return $this->column($name)->intervalMinuteToSecond($precision);
   }
 
-  public function jsonb(string $column): Column
+  public function jsonb(string $name): Column
   {
-    return $this->createColumn($column)->jsonb();
+    return $this->column($name)->jsonb();
   }
 
-  public function line(string $column): Column
+  public function line(string $name): Column
   {
-    return $this->createColumn($column)->line();
+    return $this->column($name)->line();
   }
 
-  public function lseg(string $column): Column
+  public function lseg(string $name): Column
   {
-    return $this->createColumn($column)->lseg();
+    return $this->column($name)->lseg();
   }
 
-  public function macaddr(string $column): Column
+  public function macaddr(string $name): Column
   {
-    return $this->createColumn($column)->macaddr();
+    return $this->column($name)->macaddr();
   }
 
-  public function macaddr8(string $column): Column
+  public function macaddr8(string $name): Column
   {
-    return $this->createColumn($column)->macaddr8();
+    return $this->column($name)->macaddr8();
   }
 
-  public function money(string $column): Column
+  public function money(string $name): Column
   {
-    return $this->createColumn($column)->money();
+    return $this->column($name)->money();
   }
 
-  public function path(string $column): Column
+  public function path(string $name): Column
   {
-    return $this->createColumn($column)->path();
+    return $this->column($name)->path();
   }
 
-  public function pglsn(string $column): Column
+  public function pglsn(string $name): Column
   {
-    return $this->createColumn($column)->pglsn();
+    return $this->column($name)->pglsn();
   }
 
-  public function pgSnapshot(string $column): Column
+  public function pgSnapshot(string $name): Column
   {
-    return $this->createColumn($column)->pgSnapshot();
+    return $this->column($name)->pgSnapshot();
   }
 
-  public function real(string $column): Column
+  public function real(string $name): Column
   {
-    return $this->createColumn($column)->real();
+    return $this->column($name)->real();
   }
 
-  public function smallSerial(string $column): Column
+  public function smallSerial(string $name): Column
   {
-    return $this->createColumn($column)->smallSerial();
+    return $this->column($name)->smallSerial();
   }
 
-  public function serial(string $column): Column
+  public function serial(string $name): Column
   {
-    return $this->createColumn($column)->serial();
+    return $this->column($name)->serial();
   }
 
-  public function timeWithTimeZone(string $column, int $precision = null): Column
+  public function timeWithTimeZone(string $name, int $precision = null): Column
   {
-    return $this->createColumn($column)->timeWithTimeZone($precision);
+    return $this->column($name)->timeWithTimeZone($precision);
   }
 
-  public function timestampWithTimeZone(string $column, int $precision = null): Column
+  public function timestampWithTimeZone(string $name, int $precision = null): Column
   {
-    return $this->createColumn($column)->timestampWithTimeZone($precision);
+    return $this->column($name)->timestampWithTimeZone($precision);
   }
 
-  public function tsQuery(string $column): Column
+  public function tsQuery(string $name): Column
   {
-    return $this->createColumn($column)->tsQuery();
+    return $this->column($name)->tsQuery();
   }
 
-  public function tsVector(string $column): Column
+  public function tsVector(string $name): Column
   {
-    return $this->createColumn($column)->tsVector();
+    return $this->column($name)->tsVector();
   }
 
-  public function xml(string $column): Column
+  public function xml(string $name): Column
   {
-    return $this->createColumn($column)->xml();
+    return $this->column($name)->xml();
   }
 
-  public function smallMoney(string $column): Column
+  public function smallMoney(string $name): Column
   {
-    return $this->createColumn($column)->smallMoney();
+    return $this->column($name)->smallMoney();
   }
 
-  public function datetimeOffset(string $column, int $precision = null): Column
+  public function datetimeOffset(string $name, int $precision = null): Column
   {
-    return $this->createColumn($column)->datetimeOffset($precision);
+    return $this->column($name)->datetimeOffset($precision);
   }
 
-  public function datetime2(string $column, int $precision = null): Column
+  public function datetime2(string $name, int $precision = null): Column
   {
-    return $this->createColumn($column)->datetime2($precision);
+    return $this->column($name)->datetime2($precision);
   }
 
-  public function smallDatetime(string $column): Column
+  public function smallDatetime(string $name): Column
   {
-    return $this->createColumn($column)->smallDatetime();
+    return $this->column($name)->smallDatetime();
   }
 
-  public function nchar(string $column, int $length = null): Column
+  public function nchar(string $name, int $length = null): Column
   {
-    return $this->createColumn($column)->nchar($length);
+    return $this->column($name)->nchar($length);
   }
 
-  public function nvarchar(string $column, int $length = null): Column
+  public function nvarchar(string $name, int $length = null): Column
   {
-    return $this->createColumn($column)->nvarchar($length);
+    return $this->column($name)->nvarchar($length);
   }
 
-  public function rowVersion(string $column): Column
+  public function rowVersion(string $name): Column
   {
-    return $this->createColumn($column)->rowVersion();
+    return $this->column($name)->rowVersion();
   }
 
-  public function hierarchyID(string $column): Column
+  public function hierarchyID(string $name): Column
   {
-    return $this->createColumn($column)->hierarchyID();
+    return $this->column($name)->hierarchyID();
   }
 
-  public function uniqueIdentifer(string $column): Column
+  public function uniqueIdentifer(string $name): Column
   {
-    return $this->createColumn($column)->uniqueIdentifer();
+    return $this->column($name)->uniqueIdentifer();
   }
 
-  public function sqlVariant(string $column): Column
+  public function sqlVariant(string $name): Column
   {
-    return $this->createColumn($column)->sqlVariant();
+    return $this->column($name)->sqlVariant();
   }
 
-  public function geometry(string $column): Column
+  public function geometry(string $name): Column
   {
-    return $this->createColumn($column)->geometry();
+    return $this->column($name)->geometry();
   }
 
-  public function geography(string $column): Column
+  public function geography(string $name): Column
   {
-    return $this->createColumn($column)->geography();
+    return $this->column($name)->geography();
   }
 
 }

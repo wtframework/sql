@@ -4,22 +4,19 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
-use WTFramework\SQL\Interfaces\HasBindings;
+use WTFramework\SQL\Services\Partition as ServicesPartition;
 
 trait Partition
 {
 
   protected array $partition = [];
 
-  public function partition(string|HasBindings|array $partition): static
+  public function partition(string $name): ServicesPartition
   {
 
-    foreach ((array) $partition as $p)
-    {
-      $this->partition[] = $p;
-    }
+    $this->partition[] = $partition = new ServicesPartition($name);
 
-    return $this;
+    return $partition;
 
   }
 
@@ -35,12 +32,7 @@ trait Partition
 
     foreach ($this->partition as $p)
     {
-
-      if ($p instanceof HasBindings)
-      {
-        $this->mergeBindings($p);
-      }
-
+      $this->mergeBindings($p);
     }
 
     return "($partition)";

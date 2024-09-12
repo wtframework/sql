@@ -4,22 +4,19 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
-use WTFramework\SQL\Interfaces\HasBindings;
+use WTFramework\SQL\Services\Subpartition as ServicesSubpartition;
 
 trait Subpartition
 {
 
   protected array $subpartition = [];
 
-  public function subpartition(string|HasBindings|array $subpartition): static
+  public function subpartition(string $name): ServicesSubpartition
   {
 
-    foreach ((array) $subpartition as $s)
-    {
-      $this->subpartition[] = $s;
-    }
+    $this->subpartition[] = $subpartition = new ServicesSubpartition($name);
 
-    return $this;
+    return $subpartition;
 
   }
 

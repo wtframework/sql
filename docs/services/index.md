@@ -1,7 +1,7 @@
 # What the Framework?! SQL
 
 ## Index
-The `Index` service class provides a fluent interface for generating indexs.
+The `Index` service class provides a fluent interface for generating indexes.
 ```php
 use WTFramework\SQL\SQL;
 

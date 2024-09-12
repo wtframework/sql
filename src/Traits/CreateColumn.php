@@ -4,24 +4,19 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
-use WTFramework\SQL\Interfaces\HasBindings;
+use WTFramework\SQL\Services\Column;
 
 trait CreateColumn
 {
 
   protected array $column = [];
 
-  public function column(string|HasBindings|array $column): static
+  public function column(string $name): Column
   {
 
-    $columns = is_array($column) ? $column : [$column];
+    $this->column[] = $column = new Column($name);
 
-    foreach ($columns as $column)
-    {
-      $this->column[] = $column;
-    }
-
-    return $this;
+    return $column;
 
   }
 
@@ -37,12 +32,7 @@ trait CreateColumn
 
     foreach ($this->column as $c)
     {
-
-      if ($c instanceof HasBindings)
-      {
-        $this->mergeBindings($c);
-      }
-
+      $this->mergeBindings($c);
     }
 
     return $column;

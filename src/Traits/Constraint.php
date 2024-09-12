@@ -4,24 +4,19 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
-use WTFramework\SQL\Interfaces\HasBindings;
+use WTFramework\SQL\Services\Constraint as ServicesConstraint;
 
 trait Constraint
 {
 
   protected array $constraint = [];
 
-  public function constraint(string|HasBindings|array $constraint): static
+  public function constraint(string $name = ''): ServicesConstraint
   {
 
-    $constraints = is_array($constraint) ? $constraint : [$constraint];
+    $this->constraint[] = $constraint = new ServicesConstraint($name);
 
-    foreach ($constraints as $constraint)
-    {
-      $this->constraint[] = $constraint;
-    }
-
-    return $this;
+    return $constraint;
 
   }
 
@@ -37,12 +32,7 @@ trait Constraint
 
     foreach ($this->constraint as $c)
     {
-
-      if ($c instanceof HasBindings)
-      {
-        $this->mergeBindings($c);
-      }
-
+      $this->mergeBindings($c);
     }
 
     return $constraint;

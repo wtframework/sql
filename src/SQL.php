@@ -8,6 +8,7 @@ use WTFramework\SQL\Interfaces\HasBindings;
 use WTFramework\SQL\Services\Column;
 use WTFramework\SQL\Services\Constraint;
 use WTFramework\SQL\Services\CTE;
+use WTFramework\SQL\Services\ForeignKey;
 use WTFramework\SQL\Services\Index;
 use WTFramework\SQL\Services\Outfile;
 use WTFramework\SQL\Services\Partition;
@@ -113,6 +114,11 @@ abstract class SQL
   ): CTE
   {
     return new CTE($name, $stmt);
+  }
+
+  public static function foreignKey(string|array $column): ForeignKey
+  {
+    return new ForeignKey($column);
   }
 
   public static function index(string $name = ''): Index

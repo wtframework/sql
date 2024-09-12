@@ -15,19 +15,14 @@ $stmt->table('t1');
 ```
 
 ## Columns
-Use the `column` method to add a column.
+Use the `column` method to add a column passing the column name. This will return a [`Column`](services/column.md) service class, providing a fluent interface for generating columns.
 ```php
-$stmt->column('c1 INT');
+$stmt->column('c1');
 ```
 \
-A [`Column`](services/column.md) service class can also be passed, providing a fluent interface for generating columns.
+You can also call the data type methods directly passing the column name.
 ```php
-$stmt->column(SQL::column('c1')->int());
-```
-\
-You can also call the data type methods directly to add and return a column of that type
-```php
-$stmt->int('c1'); // Adds and returns the Column service class
+$stmt->int('c1');
 ```
 
 ## Primary key
@@ -68,15 +63,16 @@ An [`Index`](services/index.md) service class can also be passed, providing a fl
 $stmt->index(SQL::index()->column('c1'));
 ```
 
-## Constraints
-Use the `constraint` method to add a constraint.
+## Foreign keys
+Use the `foreignKey` method to add a foreign key passing a string or array of column names. This will return a [`ForeignKey`](services/foreign-key.md) service class, providing a fluent interface for generating foreign keys.
 ```php
-$stmt->constraint('CONSTRAINT a PRIMARY KEY (c1)');
+$stmt->foreignKey('c1');
 ```
-\
-A [`Constraint`](services/constraint.md) service class can also be passed, providing a fluent interface for generating constraints.
+
+## Constraints
+Use the `constraint` method to add a constraint, optionally passing the constraint name. This will return a [`Constraint`](services/constraint.md) service class, providing a fluent interface for generating constraints.
 ```php
-$stmt->constraint(SQL::constraint('a')->primaryKey('c1'));
+$stmt->constraint('c1');
 ```
 
 ## Like
@@ -147,9 +143,9 @@ $stmt->subpartitionByLinearKey($columns);
 $stmt->subpartitions($int);
 ```
 \
-Use the `partition` method to add partition. A [`Partition`](services/partition.md) service class can be passed, providing a fluent interface for generating partitions.
+Use the `partition` method to add a partition passing the partition name. This will return a [`Partition`](services/partition.md) service class, providing a fluent interface for generating partitions.
 ```php
-$stmt->partition(SQL::partition('p0'));
+$stmt->partition('p0');
 ```
 \
 PostgreSQL partition options:

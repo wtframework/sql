@@ -2,26 +2,21 @@
 
 declare(strict_types=1);
 
+use WTFramework\SQL\Services\Subpartition;
 use WTFramework\SQL\SQL;
 
-it('can add subpartition', function ()
+it('can create subpartition', function ()
 {
 
-  expect(
-    (string) SQL::partition('test')
-    ->subpartition('test')
-  )
-  ->toEqual("PARTITION test (test)");
+  $partition = SQL::partition('test1');
 
-});
+  expect($subpartition = $partition->subpartition('test2'))
+  ->toBeInstanceOf(Subpartition::class);
 
-it('can add multiple subpartitions', function ()
-{
+  expect((string) $subpartition)
+  ->toEqual("SUBPARTITION test2");
 
-  expect(
-    (string) SQL::partition('test')
-    ->subpartition(['test1', 'test2'])
-  )
-  ->toEqual("PARTITION test (test1, test2)");
+  expect((string) $partition)
+  ->toEqual("PARTITION test1 (SUBPARTITION test2)");
 
 });

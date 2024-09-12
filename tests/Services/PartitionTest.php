@@ -18,7 +18,6 @@ it('can get partition', function ()
     ->minRows(5)
     ->tablespace('test')
     ->nodeGroup('test')
-    ->subpartition('test')
   )
   ->toEqual(
     "PARTITION "
@@ -31,8 +30,7 @@ it('can get partition', function ()
   . "MAX_ROWS 10 "
   . "MIN_ROWS 5 "
   . "TABLESPACE test "
-  . "NODEGROUP test "
-  . "(test)"
+  . "NODEGROUP test"
   );
 
 });
