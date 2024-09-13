@@ -12,7 +12,7 @@ trait NodeGroup
   public function nodeGroup(string $name): static
   {
 
-    $this->node_group = "NODEGROUP $name";
+    $this->node_group = "NODEGROUP = $name";
 
     return $this;
 

@@ -12,7 +12,7 @@ trait CharacterSet
   public function characterSet(string $character_set): static
   {
 
-    $this->character_set = "CHARACTER SET $character_set";
+    $this->character_set = "CHARACTER SET = $character_set";
 
     return $this;
 

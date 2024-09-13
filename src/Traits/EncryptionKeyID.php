@@ -12,7 +12,7 @@ trait EncryptionKeyID
   public function encryptionKeyID(int $value): static
   {
 
-    $this->encryption_key_id = "ENCRYPTION_KEY_ID $value";
+    $this->encryption_key_id = "ENCRYPTION_KEY_ID = $value";
 
     return $this;
 

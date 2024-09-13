@@ -12,7 +12,7 @@ trait Compression
   public function compression(string $method): static
   {
 
-    $this->compression = "COMPRESSION '$method'";
+    $this->compression = "COMPRESSION = '$method'";
 
     return $this;
 

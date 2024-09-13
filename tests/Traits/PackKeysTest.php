@@ -11,7 +11,7 @@ it('can set pack keys', function ()
     (string) SQL::create()
     ->packKeys()
   )
-  ->toEqual("CREATE TABLE PACK_KEYS 1");
+  ->toEqual("CREATE TABLE PACK_KEYS = 1");
 
 });
 
@@ -22,7 +22,7 @@ it('can set pack keys off', function ()
     (string) SQL::create()
     ->packKeys(false)
   )
-  ->toEqual("CREATE TABLE PACK_KEYS 0");
+  ->toEqual("CREATE TABLE PACK_KEYS = 0");
 
 });
 
@@ -33,6 +33,6 @@ it('can set pack keys default', function ()
     (string) SQL::create()
     ->packKeysDefault()
   )
-  ->toEqual("CREATE TABLE PACK_KEYS DEFAULT");
+  ->toEqual("CREATE TABLE PACK_KEYS = DEFAULT");
 
 });

@@ -11,7 +11,7 @@ it('can set ietf quotes', function ()
     (string) SQL::create()
     ->ietfQuotes()
   )
-  ->toEqual("CREATE TABLE IETF_QUOTES YES");
+  ->toEqual("CREATE TABLE IETF_QUOTES = YES");
 
 });
 
@@ -22,6 +22,6 @@ it('can set ietf quotes off', function ()
     (string) SQL::create()
     ->ietfQuotes(false)
   )
-  ->toEqual("CREATE TABLE IETF_QUOTES NO");
+  ->toEqual("CREATE TABLE IETF_QUOTES = NO");
 
 });

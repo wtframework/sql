@@ -11,7 +11,7 @@ it('can set transactional', function ()
     (string) SQL::create()
     ->transactional()
   )
-  ->toEqual("CREATE TABLE TRANSACTIONAL 1");
+  ->toEqual("CREATE TABLE TRANSACTIONAL = 1");
 
 });
 
@@ -22,6 +22,6 @@ it('can set transactional off', function ()
     (string) SQL::create()
     ->transactional(false)
   )
-  ->toEqual("CREATE TABLE TRANSACTIONAL 0");
+  ->toEqual("CREATE TABLE TRANSACTIONAL = 0");
 
 });

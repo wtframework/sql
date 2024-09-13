@@ -11,7 +11,7 @@ it('can set stats sample pages', function ()
     (string) SQL::create()
     ->statsSamplePages(1)
   )
-  ->toEqual("CREATE TABLE STATS_SAMPLE_PAGES 1");
+  ->toEqual("CREATE TABLE STATS_SAMPLE_PAGES = 1");
 
 });
 
@@ -22,6 +22,6 @@ it('can set stats sample pages default', function ()
     (string) SQL::create()
     ->statsSamplePagesDefault()
   )
-  ->toEqual("CREATE TABLE STATS_SAMPLE_PAGES DEFAULT");
+  ->toEqual("CREATE TABLE STATS_SAMPLE_PAGES = DEFAULT");
 
 });

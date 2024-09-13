@@ -14,7 +14,7 @@ trait DelayKeyWrite
 
     $value = (int) $value;
 
-    $this->delay_key_write = "DELAY_KEY_WRITE $value";
+    $this->delay_key_write = "DELAY_KEY_WRITE = $value";
 
     return $this;
 

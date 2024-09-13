@@ -16,7 +16,7 @@ trait DataDirectory
 
     $data_directory = SQL::escape($data_directory);
 
-    $this->data_directory = "DATA DIRECTORY '$data_directory'";
+    $this->data_directory = "DATA DIRECTORY = '$data_directory'";
 
     return $this;
 

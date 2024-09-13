@@ -12,7 +12,7 @@ trait Algorithm
   public function algorithmDefault(): static
   {
 
-    $this->algorithm = 'ALGORITHM DEFAULT';
+    $this->algorithm = 'ALGORITHM = DEFAULT';
 
     return $this;
 
@@ -21,7 +21,7 @@ trait Algorithm
   public function algorithmInPlace(): static
   {
 
-    $this->algorithm = 'ALGORITHM INPLACE';
+    $this->algorithm = 'ALGORITHM = INPLACE';
 
     return $this;
 
@@ -30,7 +30,7 @@ trait Algorithm
   public function algorithmCopy(): static
   {
 
-    $this->algorithm = 'ALGORITHM COPY';
+    $this->algorithm = 'ALGORITHM = COPY';
 
     return $this;
 
@@ -39,7 +39,7 @@ trait Algorithm
   public function algorithmNoCopy(): static
   {
 
-    $this->algorithm = 'ALGORITHM NOCOPY';
+    $this->algorithm = 'ALGORITHM = NOCOPY';
 
     return $this;
 
@@ -48,7 +48,7 @@ trait Algorithm
   public function algorithmInstant(): static
   {
 
-    $this->algorithm = 'ALGORITHM INSTANT';
+    $this->algorithm = 'ALGORITHM = INSTANT';
 
     return $this;
 

@@ -16,7 +16,7 @@ trait EngineAttribute
 
     $engine_attribute = SQL::escape($engine_attribute);
 
-    $this->engine_attribute = "ENGINE_ATTRIBUTE '$engine_attribute'";
+    $this->engine_attribute = "ENGINE_ATTRIBUTE = '$engine_attribute'";
 
     return $this;
 

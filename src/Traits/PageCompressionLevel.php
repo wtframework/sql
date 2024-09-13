@@ -12,7 +12,7 @@ trait PageCompressionLevel
   public function pageCompressionLevel(int $value): static
   {
 
-    $this->page_compression_level = "PAGE_COMPRESSION_LEVEL $value";
+    $this->page_compression_level = "PAGE_COMPRESSION_LEVEL = $value";
 
     return $this;
 

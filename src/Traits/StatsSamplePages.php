@@ -12,7 +12,7 @@ trait StatsSamplePages
   public function statsSamplePages(int $value): static
   {
 
-    $this->stats_sample_pages = "STATS_SAMPLE_PAGES $value";
+    $this->stats_sample_pages = "STATS_SAMPLE_PAGES = $value";
 
     return $this;
 
@@ -21,7 +21,7 @@ trait StatsSamplePages
   public function statsSamplePagesDefault(): static
   {
 
-    $this->stats_auto_recalc = "STATS_SAMPLE_PAGES DEFAULT";
+    $this->stats_auto_recalc = "STATS_SAMPLE_PAGES = DEFAULT";
 
     return $this;
 

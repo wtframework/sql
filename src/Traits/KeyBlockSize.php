@@ -12,7 +12,7 @@ trait KeyBlockSize
   public function keyBlockSize(int $value): static
   {
 
-    $this->key_block_size = "KEY_BLOCK_SIZE $value";
+    $this->key_block_size = "KEY_BLOCK_SIZE = $value";
 
     return $this;
 

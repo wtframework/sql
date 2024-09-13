@@ -16,7 +16,7 @@ trait Connection
 
     $connection = SQL::escape($connection);
 
-    $this->table_connection = "CONNECTION '$connection'";
+    $this->table_connection = "CONNECTION = '$connection'";
 
     return $this;
 

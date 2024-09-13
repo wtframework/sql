@@ -14,7 +14,7 @@ trait PageChecksum
 
     $value = (int) $value;
 
-    $this->page_checksum = "PAGE_CHECKSUM $value";
+    $this->page_checksum = "PAGE_CHECKSUM = $value";
 
     return $this;
 

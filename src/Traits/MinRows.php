@@ -12,7 +12,7 @@ trait MinRows
   public function minRows(int $value): static
   {
 
-    $this->min_rows = "MIN_ROWS $value";
+    $this->min_rows = "MIN_ROWS = $value";
 
     return $this;
 

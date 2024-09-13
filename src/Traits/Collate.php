@@ -12,7 +12,7 @@ trait Collate
   public function collate(string $collation): static
   {
 
-    $this->collate = "COLLATE $collation";
+    $this->collate = "COLLATE = $collation";
 
     return $this;
 

@@ -14,7 +14,7 @@ trait IETFQuotes
 
     $ietf_quotes = $ietf_quotes ? 'YES' : 'NO';
 
-    $this->ietf_quotes = "IETF_QUOTES $ietf_quotes";
+    $this->ietf_quotes = "IETF_QUOTES = $ietf_quotes";
 
     return $this;
 

@@ -14,7 +14,7 @@ trait Checksum
 
     $value = (int) $value;
 
-    $this->checksum = "CHECKSUM $value";
+    $this->checksum = "CHECKSUM = $value";
 
     return $this;
 

@@ -18,7 +18,7 @@ it('can get outfile', function ()
   )
   ->toEqual(
     "'''test''.txt' "
-  . "CHARACTER SET utf8mb4 "
+  . "CHARACTER SET = utf8mb4 "
   . "FIELDS TERMINATED BY '''' "
   . "ENCLOSED BY '''' "
   . "ESCAPED BY '''' "

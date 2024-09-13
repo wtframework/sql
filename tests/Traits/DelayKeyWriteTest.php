@@ -11,7 +11,7 @@ it('can set delay key write', function ()
     (string) SQL::create()
     ->delayKeyWrite()
   )
-  ->toEqual("CREATE TABLE DELAY_KEY_WRITE 1");
+  ->toEqual("CREATE TABLE DELAY_KEY_WRITE = 1");
 
 });
 
@@ -22,6 +22,6 @@ it('can set delay key write off', function ()
     (string) SQL::create()
     ->delayKeyWrite(false)
   )
-  ->toEqual("CREATE TABLE DELAY_KEY_WRITE 0");
+  ->toEqual("CREATE TABLE DELAY_KEY_WRITE = 0");
 
 });

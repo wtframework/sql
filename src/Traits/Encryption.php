@@ -14,7 +14,7 @@ trait Encryption
 
     $encryption = $encryption ? 'Y' : 'N';
 
-    $this->encryption = "ENCRYPTION '$encryption'";
+    $this->encryption = "ENCRYPTION = '$encryption'";
 
     return $this;
 

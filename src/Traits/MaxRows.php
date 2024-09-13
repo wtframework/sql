@@ -12,7 +12,7 @@ trait MaxRows
   public function maxRows(int $value): static
   {
 
-    $this->max_rows = "MAX_ROWS $value";
+    $this->max_rows = "MAX_ROWS = $value";
 
     return $this;
 

@@ -14,7 +14,7 @@ trait StatsPersistent
 
     $value = (int) $value;
 
-    $this->stats_persistent = "STATS_PERSISTENT $value";
+    $this->stats_persistent = "STATS_PERSISTENT = $value";
 
     return $this;
 
@@ -23,7 +23,7 @@ trait StatsPersistent
   public function statsPersistentDefault(): static
   {
 
-    $this->stats_persistent = "STATS_PERSISTENT DEFAULT";
+    $this->stats_persistent = "STATS_PERSISTENT = DEFAULT";
 
     return $this;
 

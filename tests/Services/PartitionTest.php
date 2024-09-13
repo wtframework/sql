@@ -23,14 +23,14 @@ it('can get partition', function ()
     "PARTITION "
   . "test "
   . "VALUES LESS THAN MAXVALUE "
-  . "ENGINE test "
-  . "COMMENT 'test' "
-  . "DATA DIRECTORY 'test' "
-  . "INDEX DIRECTORY 'test' "
-  . "MAX_ROWS 10 "
-  . "MIN_ROWS 5 "
+  . "ENGINE = test "
+  . "COMMENT = 'test' "
+  . "DATA DIRECTORY = 'test' "
+  . "INDEX DIRECTORY = 'test' "
+  . "MAX_ROWS = 10 "
+  . "MIN_ROWS = 5 "
   . "TABLESPACE test "
-  . "NODEGROUP test"
+  . "NODEGROUP = test"
   );
 
 });

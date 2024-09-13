@@ -14,7 +14,7 @@ trait PageCompressed
 
     $value = (int) $value;
 
-    $this->page_compressed = "PAGE_COMPRESSED $value";
+    $this->page_compressed = "PAGE_COMPRESSED = $value";
 
     return $this;
 

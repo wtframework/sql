@@ -11,7 +11,7 @@ it('can set algorithm default', function ()
     (string) SQL::dropIndex('test')
     ->algorithmDefault()
   )
-  ->toEqual("DROP INDEX test ALGORITHM DEFAULT");
+  ->toEqual("DROP INDEX test ALGORITHM = DEFAULT");
 
 });
 
@@ -22,7 +22,7 @@ it('can set algorithm in place', function ()
     (string) SQL::dropIndex('test')
     ->algorithmInPlace()
   )
-  ->toEqual("DROP INDEX test ALGORITHM INPLACE");
+  ->toEqual("DROP INDEX test ALGORITHM = INPLACE");
 
 });
 
@@ -33,7 +33,7 @@ it('can set algorithm copy', function ()
     (string) SQL::dropIndex('test')
     ->algorithmCopy()
   )
-  ->toEqual("DROP INDEX test ALGORITHM COPY");
+  ->toEqual("DROP INDEX test ALGORITHM = COPY");
 
 });
 
@@ -44,7 +44,7 @@ it('can set algorithm no copy', function ()
     (string) SQL::dropIndex('test')
     ->algorithmNoCopy()
   )
-  ->toEqual("DROP INDEX test ALGORITHM NOCOPY");
+  ->toEqual("DROP INDEX test ALGORITHM = NOCOPY");
 
 });
 
@@ -55,6 +55,6 @@ it('can set algorithm instant', function ()
     (string) SQL::dropIndex('test')
     ->algorithmInstant()
   )
-  ->toEqual("DROP INDEX test ALGORITHM INSTANT");
+  ->toEqual("DROP INDEX test ALGORITHM = INSTANT");
 
 });

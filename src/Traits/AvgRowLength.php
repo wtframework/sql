@@ -12,7 +12,7 @@ trait AvgRowLength
   public function avgRowLength(int $value): static
   {
 
-    $this->avg_row_length = "AVG_ROW_LENGTH $value";
+    $this->avg_row_length = "AVG_ROW_LENGTH = $value";
 
     return $this;
 

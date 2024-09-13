@@ -12,7 +12,7 @@ trait AutoExtendSize
   public function autoExtendSize(int $value): static
   {
 
-    $this->auto_extend_size = "AUTOEXTEND_SIZE $value";
+    $this->auto_extend_size = "AUTOEXTEND_SIZE = $value";
 
     return $this;
 

@@ -12,7 +12,7 @@ trait AutoIncrement
   public function autoIncrement(int $value): static
   {
 
-    $this->auto_increment = "AUTO_INCREMENT $value";
+    $this->auto_increment = "AUTO_INCREMENT = $value";
 
     return $this;
 

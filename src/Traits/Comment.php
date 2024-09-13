@@ -16,7 +16,7 @@ trait Comment
 
     $comment = SQL::escape($comment);
 
-    $this->comment = "COMMENT '$comment'";
+    $this->comment = "COMMENT = '$comment'";
 
     return $this;
 

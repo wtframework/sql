@@ -12,7 +12,7 @@ trait RowFormat
   public function rowFormatDefault(): static
   {
 
-    $this->row_format = 'ROW_FORMAT DEFAULT';
+    $this->row_format = 'ROW_FORMAT = DEFAULT';
 
     return $this;
 
@@ -21,7 +21,7 @@ trait RowFormat
   public function rowFormatDynamic(): static
   {
 
-    $this->row_format = 'ROW_FORMAT DYNAMIC';
+    $this->row_format = 'ROW_FORMAT = DYNAMIC';
 
     return $this;
 
@@ -30,7 +30,7 @@ trait RowFormat
   public function rowFormatFixed(): static
   {
 
-    $this->row_format = 'ROW_FORMAT FIXED';
+    $this->row_format = 'ROW_FORMAT = FIXED';
 
     return $this;
 
@@ -39,7 +39,7 @@ trait RowFormat
   public function rowFormatCompressed(): static
   {
 
-    $this->row_format = 'ROW_FORMAT COMPRESSED';
+    $this->row_format = 'ROW_FORMAT = COMPRESSED';
 
     return $this;
 
@@ -48,7 +48,7 @@ trait RowFormat
   public function rowFormatRedundant(): static
   {
 
-    $this->row_format = 'ROW_FORMAT REDUNDANT';
+    $this->row_format = 'ROW_FORMAT = REDUNDANT';
 
     return $this;
 
@@ -57,7 +57,7 @@ trait RowFormat
   public function rowFormatCompact(): static
   {
 
-    $this->row_format = 'ROW_FORMAT COMPACT';
+    $this->row_format = 'ROW_FORMAT = COMPACT';
 
     return $this;
 
@@ -66,7 +66,7 @@ trait RowFormat
   public function rowFormatPage(): static
   {
 
-    $this->row_format = 'ROW_FORMAT PAGE';
+    $this->row_format = 'ROW_FORMAT = PAGE';
 
     return $this;
 

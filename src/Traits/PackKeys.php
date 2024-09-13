@@ -14,7 +14,7 @@ trait PackKeys
 
     $value = (int) $value;
 
-    $this->pack_keys = "PACK_KEYS $value";
+    $this->pack_keys = "PACK_KEYS = $value";
 
     return $this;
 
@@ -23,7 +23,7 @@ trait PackKeys
   public function packKeysDefault(): static
   {
 
-    $this->pack_keys = "PACK_KEYS DEFAULT";
+    $this->pack_keys = "PACK_KEYS = DEFAULT";
 
     return $this;
 

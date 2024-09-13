@@ -12,7 +12,7 @@ trait Lock
   public function lockDefault(): static
   {
 
-    $this->lock = 'LOCK DEFAULT';
+    $this->lock = 'LOCK = DEFAULT';
 
     return $this;
 
@@ -21,7 +21,7 @@ trait Lock
   public function lockNone(): static
   {
 
-    $this->lock = 'LOCK NONE';
+    $this->lock = 'LOCK = NONE';
 
     return $this;
 
@@ -30,7 +30,7 @@ trait Lock
   public function lockShared(): static
   {
 
-    $this->lock = 'LOCK SHARED';
+    $this->lock = 'LOCK = SHARED';
 
     return $this;
 
@@ -39,7 +39,7 @@ trait Lock
   public function lockExclusive(): static
   {
 
-    $this->lock = 'LOCK EXCLUSIVE';
+    $this->lock = 'LOCK = EXCLUSIVE';
 
     return $this;
 

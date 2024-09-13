@@ -29,14 +29,14 @@ it('can get index', function ()
   . "i1 "
   . "USING BTREE "
   . "(c1, c2) "
-  . "KEY_BLOCK_SIZE 1 "
+  . "KEY_BLOCK_SIZE = 1 "
   . "WITH PARSER parser "
-  . "COMMENT '''comment'' comment' "
+  . "COMMENT = '''comment'' comment' "
   . "CLUSTERING = YES "
   . "IGNORED "
   . "VISIBLE "
-  . "ENGINE_ATTRIBUTE 'a' "
-  . "SECONDARY_ENGINE_ATTRIBUTE 'b'"
+  . "ENGINE_ATTRIBUTE = 'a' "
+  . "SECONDARY_ENGINE_ATTRIBUTE = 'b'"
   );
 
   expect((string) SQL::index('c1')->spatial())

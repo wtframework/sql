@@ -11,7 +11,7 @@ it('can set checksum', function ()
     (string) SQL::create()
     ->checksum()
   )
-  ->toEqual("CREATE TABLE CHECKSUM 1");
+  ->toEqual("CREATE TABLE CHECKSUM = 1");
 
 });
 
@@ -22,6 +22,6 @@ it('can set checksum off', function ()
     (string) SQL::create()
     ->checksum(false)
   )
-  ->toEqual("CREATE TABLE CHECKSUM 0");
+  ->toEqual("CREATE TABLE CHECKSUM = 0");
 
 });

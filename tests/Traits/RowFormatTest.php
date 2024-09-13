@@ -11,7 +11,7 @@ it('can set row format default', function ()
     (string) SQL::create()
     ->rowFormatDefault()
   )
-  ->toEqual("CREATE TABLE ROW_FORMAT DEFAULT");
+  ->toEqual("CREATE TABLE ROW_FORMAT = DEFAULT");
 
 });
 
@@ -22,7 +22,7 @@ it('can set row format dynamic', function ()
     (string) SQL::create()
     ->rowFormatDynamic()
   )
-  ->toEqual("CREATE TABLE ROW_FORMAT DYNAMIC");
+  ->toEqual("CREATE TABLE ROW_FORMAT = DYNAMIC");
 
 });
 
@@ -33,7 +33,7 @@ it('can set row format fixed', function ()
     (string) SQL::create()
     ->rowFormatFixed()
   )
-  ->toEqual("CREATE TABLE ROW_FORMAT FIXED");
+  ->toEqual("CREATE TABLE ROW_FORMAT = FIXED");
 
 });
 
@@ -44,7 +44,7 @@ it('can set row format compressed', function ()
     (string) SQL::create()
     ->rowFormatCompressed()
   )
-  ->toEqual("CREATE TABLE ROW_FORMAT COMPRESSED");
+  ->toEqual("CREATE TABLE ROW_FORMAT = COMPRESSED");
 
 });
 
@@ -55,7 +55,7 @@ it('can set row format redundant', function ()
     (string) SQL::create()
     ->rowFormatRedundant()
   )
-  ->toEqual("CREATE TABLE ROW_FORMAT REDUNDANT");
+  ->toEqual("CREATE TABLE ROW_FORMAT = REDUNDANT");
 
 });
 
@@ -66,7 +66,7 @@ it('can set row format compact', function ()
     (string) SQL::create()
     ->rowFormatCompact()
   )
-  ->toEqual("CREATE TABLE ROW_FORMAT COMPACT");
+  ->toEqual("CREATE TABLE ROW_FORMAT = COMPACT");
 
 });
 
@@ -77,6 +77,6 @@ it('can set row format page', function ()
     (string) SQL::create()
     ->rowFormatPage()
   )
-  ->toEqual("CREATE TABLE ROW_FORMAT PAGE");
+  ->toEqual("CREATE TABLE ROW_FORMAT = PAGE");
 
 });

@@ -11,7 +11,7 @@ it('can set encryption', function ()
     (string) SQL::create()
     ->encryption()
   )
-  ->toEqual("CREATE TABLE ENCRYPTION 'Y'");
+  ->toEqual("CREATE TABLE ENCRYPTION = 'Y'");
 
 });
 
@@ -22,6 +22,6 @@ it('can set encryption off', function ()
     (string) SQL::create()
     ->encryption(false)
   )
-  ->toEqual("CREATE TABLE ENCRYPTION 'N'");
+  ->toEqual("CREATE TABLE ENCRYPTION = 'N'");
 
 });

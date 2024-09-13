@@ -14,7 +14,7 @@ trait Sequence
 
     $value = (int) $value;
 
-    $this->sequence = "SEQUENCE $value";
+    $this->sequence = "SEQUENCE = $value";
 
     return $this;
 

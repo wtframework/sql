@@ -16,7 +16,7 @@ trait IndexDirectory
 
     $index_directory = SQL::escape($index_directory);
 
-    $this->index_directory = "INDEX DIRECTORY '$index_directory'";
+    $this->index_directory = "INDEX DIRECTORY = '$index_directory'";
 
     return $this;
 

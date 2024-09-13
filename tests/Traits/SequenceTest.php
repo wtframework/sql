@@ -11,7 +11,7 @@ it('can set sequence', function ()
     (string) SQL::create()
     ->sequence()
   )
-  ->toEqual("CREATE TABLE SEQUENCE 1");
+  ->toEqual("CREATE TABLE SEQUENCE = 1");
 
 });
 
@@ -22,6 +22,6 @@ it('can set sequence off', function ()
     (string) SQL::create()
     ->sequence(false)
   )
-  ->toEqual("CREATE TABLE SEQUENCE 0");
+  ->toEqual("CREATE TABLE SEQUENCE = 0");
 
 });

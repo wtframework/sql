@@ -11,7 +11,7 @@ it('can set stats persistent', function ()
     (string) SQL::create()
     ->statsPersistent()
   )
-  ->toEqual("CREATE TABLE STATS_PERSISTENT 1");
+  ->toEqual("CREATE TABLE STATS_PERSISTENT = 1");
 
 });
 
@@ -22,7 +22,7 @@ it('can set stats persistent off', function ()
     (string) SQL::create()
     ->statsPersistent(false)
   )
-  ->toEqual("CREATE TABLE STATS_PERSISTENT 0");
+  ->toEqual("CREATE TABLE STATS_PERSISTENT = 0");
 
 });
 
@@ -33,6 +33,6 @@ it('can set stats persistent default', function ()
     (string) SQL::create()
     ->statsPersistentDefault()
   )
-  ->toEqual("CREATE TABLE STATS_PERSISTENT DEFAULT");
+  ->toEqual("CREATE TABLE STATS_PERSISTENT = DEFAULT");
 
 });

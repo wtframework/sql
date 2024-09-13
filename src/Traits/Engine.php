@@ -12,7 +12,7 @@ trait Engine
   public function engine(string $name): static
   {
 
-    $this->engine = "ENGINE $name";
+    $this->engine = "ENGINE = $name";
 
     return $this;
 

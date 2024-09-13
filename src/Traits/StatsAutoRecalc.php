@@ -14,7 +14,7 @@ trait StatsAutoRecalc
 
     $value = (int) $value;
 
-    $this->stats_auto_recalc = "STATS_AUTO_RECALC $value";
+    $this->stats_auto_recalc = "STATS_AUTO_RECALC = $value";
 
     return $this;
 
@@ -23,7 +23,7 @@ trait StatsAutoRecalc
   public function statsAutoRecalcDefault(): static
   {
 
-    $this->stats_auto_recalc = "STATS_AUTO_RECALC DEFAULT";
+    $this->stats_auto_recalc = "STATS_AUTO_RECALC = DEFAULT";
 
     return $this;
 

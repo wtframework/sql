@@ -11,7 +11,7 @@ it('can set stats auto recalc', function ()
     (string) SQL::create()
     ->statsAutoRecalc()
   )
-  ->toEqual("CREATE TABLE STATS_AUTO_RECALC 1");
+  ->toEqual("CREATE TABLE STATS_AUTO_RECALC = 1");
 
 });
 
@@ -22,7 +22,7 @@ it('can set stats auto recalc off', function ()
     (string) SQL::create()
     ->statsAutoRecalc(false)
   )
-  ->toEqual("CREATE TABLE STATS_AUTO_RECALC 0");
+  ->toEqual("CREATE TABLE STATS_AUTO_RECALC = 0");
 
 });
 
@@ -33,6 +33,6 @@ it('can set stats auto recalc default', function ()
     (string) SQL::create()
     ->statsAutoRecalcDefault()
   )
-  ->toEqual("CREATE TABLE STATS_AUTO_RECALC DEFAULT");
+  ->toEqual("CREATE TABLE STATS_AUTO_RECALC = DEFAULT");
 
 });

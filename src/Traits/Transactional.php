@@ -14,7 +14,7 @@ trait Transactional
 
     $value = (int) $value;
 
-    $this->transactional = "TRANSACTIONAL $value";
+    $this->transactional = "TRANSACTIONAL = $value";
 
     return $this;
 

@@ -16,7 +16,7 @@ trait Password
 
     $password = SQL::escape($password);
 
-    $this->password = "PASSWORD '$password'";
+    $this->password = "PASSWORD = '$password'";
 
     return $this;
 

@@ -14,7 +14,7 @@ trait Encrypted
 
     $encrypted = $encrypted ? 'YES' : 'NO';
 
-    $this->encrypted = "ENCRYPTED $encrypted";
+    $this->encrypted = "ENCRYPTED = $encrypted";
 
     return $this;
 

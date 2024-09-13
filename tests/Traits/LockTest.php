@@ -11,7 +11,7 @@ it('can set lock default', function ()
     (string) SQL::dropIndex('test')
     ->lockDefault()
   )
-  ->toEqual("DROP INDEX test LOCK DEFAULT");
+  ->toEqual("DROP INDEX test LOCK = DEFAULT");
 
 });
 
@@ -22,7 +22,7 @@ it('can set lock none', function ()
     (string) SQL::dropIndex('test')
     ->lockNone()
   )
-  ->toEqual("DROP INDEX test LOCK NONE");
+  ->toEqual("DROP INDEX test LOCK = NONE");
 
 });
 
@@ -33,7 +33,7 @@ it('can set lock shared', function ()
     (string) SQL::dropIndex('test')
     ->lockShared()
   )
-  ->toEqual("DROP INDEX test LOCK SHARED");
+  ->toEqual("DROP INDEX test LOCK = SHARED");
 
 });
 
@@ -44,6 +44,6 @@ it('can set lock exclusive', function ()
     (string) SQL::dropIndex('test')
     ->lockExclusive()
   )
-  ->toEqual("DROP INDEX test LOCK EXCLUSIVE");
+  ->toEqual("DROP INDEX test LOCK = EXCLUSIVE");
 
 });

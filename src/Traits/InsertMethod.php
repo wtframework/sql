@@ -12,7 +12,7 @@ trait InsertMethod
   public function insertMethodNo(): static
   {
 
-    $this->insert_method = 'INSERT_METHOD NO';
+    $this->insert_method = 'INSERT_METHOD = NO';
 
     return $this;
 
@@ -21,7 +21,7 @@ trait InsertMethod
   public function insertMethodFirst(): static
   {
 
-    $this->insert_method = 'INSERT_METHOD FIRST';
+    $this->insert_method = 'INSERT_METHOD = FIRST';
 
     return $this;
 
@@ -30,7 +30,7 @@ trait InsertMethod
   public function insertMethodLast(): static
   {
 
-    $this->insert_method = 'INSERT_METHOD LAST';
+    $this->insert_method = 'INSERT_METHOD = LAST';
 
     return $this;
 

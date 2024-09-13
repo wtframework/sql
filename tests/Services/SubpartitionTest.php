@@ -21,14 +21,14 @@ it('can get subpartition', function ()
   ->toEqual(
     "SUBPARTITION "
   . "test "
-  . "ENGINE test "
-  . "COMMENT 'test' "
-  . "DATA DIRECTORY 'test' "
-  . "INDEX DIRECTORY 'test' "
-  . "MAX_ROWS 10 "
-  . "MIN_ROWS 5 "
+  . "ENGINE = test "
+  . "COMMENT = 'test' "
+  . "DATA DIRECTORY = 'test' "
+  . "INDEX DIRECTORY = 'test' "
+  . "MAX_ROWS = 10 "
+  . "MIN_ROWS = 5 "
   . "TABLESPACE test "
-  . "NODEGROUP test"
+  . "NODEGROUP = test"
   );
 
 });

@@ -11,7 +11,7 @@ it('can set page checksum', function ()
     (string) SQL::create()
     ->pageChecksum()
   )
-  ->toEqual("CREATE TABLE PAGE_CHECKSUM 1");
+  ->toEqual("CREATE TABLE PAGE_CHECKSUM = 1");
 
 });
 
@@ -22,6 +22,6 @@ it('can set page checksum off', function ()
     (string) SQL::create()
     ->pageChecksum(false)
   )
-  ->toEqual("CREATE TABLE PAGE_CHECKSUM 0");
+  ->toEqual("CREATE TABLE PAGE_CHECKSUM = 0");
 
 });
