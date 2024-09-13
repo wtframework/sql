@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace WTFramework\SQL\Traits;
 
+use WTFramework\SQL\Interfaces\HasBindings;
 use WTFramework\SQL\SQL;
 
 trait DefaultValue
 {
 
-  protected string|int|float|null $default = null;
+  protected string|int|float|null|HasBindings $default = null;
 
-  public function default(string|int|float $expression): static
+  public function default(string|int|float|null|HasBindings $expression): static
   {
 
     if (is_string($expression))
@@ -19,7 +20,12 @@ trait DefaultValue
       $expression = "'" . SQL::escape($expression) . "'";
     }
 
-    $this->default = $expression;
+    elseif (null === $expression)
+    {
+      $expression = SQL::raw("NULL");
+    }
+
+    $this->default = (string) $expression;
 
     return $this;
 

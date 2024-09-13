@@ -36,3 +36,25 @@ it('can set default integer', function ()
   ->toEqual("test DEFAULT (1)");
 
 });
+
+it('can set default null', function ()
+{
+
+  expect(
+    (string) SQL::column('test')
+    ->default(null)
+  )
+  ->toEqual("test DEFAULT (NULL)");
+
+});
+
+it('can set default raw', function ()
+{
+
+  expect(
+    (string) SQL::column('test')
+    ->default(SQL::raw("CURRENT_TIMESTAMP"))
+  )
+  ->toEqual("test DEFAULT (CURRENT_TIMESTAMP)");
+
+});
