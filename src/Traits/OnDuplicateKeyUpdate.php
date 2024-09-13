@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace WTFramework\SQL\Traits;
 
 use WTFramework\SQL\Interfaces\HasBindings;
-use WTFramework\SQL\Services\Predicate;
+use WTFramework\SQL\SQL;
 
 trait OnDuplicateKeyUpdate
 {
@@ -30,7 +30,12 @@ trait OnDuplicateKeyUpdate
 
     }
 
-    $this->on_duplicate_key_update[] = [$column, $value];
+    if (is_string($value))
+    {
+      $value = SQL::bind($value);
+    }
+
+    $this->on_duplicate_key_update[] = [$column, $value ?? "NULL"];
 
     return $this;
 
@@ -64,12 +69,12 @@ trait OnDuplicateKeyUpdate
     foreach ($this->on_duplicate_key_update as [$column, $value])
     {
 
-      $on_duplicate_key_update[] = (string) $predicate = new Predicate(
-        column: $column,
-        value: $value
-      );
+      $on_duplicate_key_update[] = "$column = $value";
 
-      $this->mergeBindings($predicate);
+      if ($value instanceof HasBindings)
+      {
+        $this->mergeBindings($value);
+      }
 
     }
 

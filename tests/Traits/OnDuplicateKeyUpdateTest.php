@@ -53,3 +53,14 @@ it('can on duplicate key insert multiple columns', function ()
   ->toEqual("INSERT VALUES () ON DUPLICATE KEY UPDATE (test1, test2) = 1");
 
 });
+
+it('can on duplicate key null', function ()
+{
+
+  expect(
+    (string) SQL::insert()
+    ->onDuplicateKeyUpdate('test1', null)
+  )
+  ->toEqual("INSERT VALUES () ON DUPLICATE KEY UPDATE test1 = NULL");
+
+});

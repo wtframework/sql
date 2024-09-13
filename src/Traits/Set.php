@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace WTFramework\SQL\Traits;
 
 use WTFramework\SQL\Interfaces\HasBindings;
-use WTFramework\SQL\Services\Predicate;
+use WTFramework\SQL\SQL;
 
 trait Set
 {
@@ -30,7 +30,12 @@ trait Set
 
     }
 
-    $this->set[] = [$column, $value];
+    if (is_string($value))
+    {
+      $value = SQL::bind($value);
+    }
+
+    $this->set[] = [$column, $value ?? "NULL"];
 
     return $this;
 
@@ -64,12 +69,12 @@ trait Set
     foreach ($this->set as [$column, $value])
     {
 
-      $set[] = (string) $predicate = new Predicate(
-        column: $column,
-        value: $value
-      );
+      $set[] = "$column = $value";
 
-      $this->mergeBindings($predicate);
+      if ($value instanceof HasBindings)
+      {
+        $this->mergeBindings($value);
+      }
 
     }
 

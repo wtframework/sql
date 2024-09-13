@@ -53,3 +53,14 @@ it('can set multiple columns', function ()
   ->toEqual("UPDATE SET (test1, test2) = 1");
 
 });
+
+it('can set null', function ()
+{
+
+  expect(
+    (string) SQL::update()
+    ->set('test1', null)
+  )
+  ->toEqual("UPDATE SET test1 = NULL");
+
+});
