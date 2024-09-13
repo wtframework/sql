@@ -20,12 +20,7 @@ trait DefaultValue
       $expression = "'" . SQL::escape($expression) . "'";
     }
 
-    elseif (null === $expression)
-    {
-      $expression = SQL::raw("NULL");
-    }
-
-    $this->default = (string) $expression;
+    $this->default = (string) ($expression ?? "NULL");
 
     return $this;
 

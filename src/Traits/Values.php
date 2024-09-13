@@ -28,10 +28,7 @@ trait Values
           $value = (new Raw('?'))->bind($value);
         }
 
-        elseif (null === $value)
-        {
-          $value = "NULL";
-        }
+        $value ??= "NULL";
 
       }
 
