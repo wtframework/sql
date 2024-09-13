@@ -53,3 +53,14 @@ it('can get raw values', function ()
   ->toEqual("VALUES (test1, test2)");
 
 });
+
+it('can get null values', function ()
+{
+
+  expect(
+    (string) SQL::select()
+    ->values([null])
+  )
+  ->toEqual("VALUES (NULL)");
+
+});

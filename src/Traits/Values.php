@@ -28,6 +28,11 @@ trait Values
           $value = (new Raw('?'))->bind($value);
         }
 
+        elseif (null === $value)
+        {
+          $value = "NULL";
+        }
+
       }
 
       $this->values[] = $v;
