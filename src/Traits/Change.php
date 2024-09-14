@@ -14,7 +14,10 @@ trait Change
   public function change(string $old_name, string $new_name): Column
   {
 
-    $this->change_column[] = [$old_name, $column = new Column($new_name)];
+    $this->change_column[] = [
+      $old_name,
+      $column = (new Column($new_name))->use($this->grammar())
+    ];
 
     return $column;
 

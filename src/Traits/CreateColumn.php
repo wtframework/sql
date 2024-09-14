@@ -14,7 +14,7 @@ trait CreateColumn
   public function column(string $name): Column
   {
 
-    $this->column[] = $column = new Column($name);
+    $this->column[] = $column = (new Column($name))->use($this->grammar());
 
     return $column;
 

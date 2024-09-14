@@ -14,7 +14,7 @@ trait AddColumn
   public function addColumn(string $name): Column
   {
 
-    $this->add_column[] = $column = new Column($name);
+    $this->add_column[] = $column = (new Column($name))->use($this->grammar());
 
     return $column;
 

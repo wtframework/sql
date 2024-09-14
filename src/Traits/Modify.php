@@ -14,7 +14,7 @@ trait Modify
   public function modify(string $name): Column
   {
 
-    $this->modify_column[] = $column = new Column($name);
+    $this->modify_column[] = $column = (new Column($name))->use($this->grammar());
 
     return $column;
 
