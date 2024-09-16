@@ -31,7 +31,7 @@ trait AddColumn
     foreach ($this->add_column as $column)
     {
 
-      $add_column[] = "ADD COLUMN $column";
+      $add_column[] = "ADD $column";
 
       $this->mergeBindings($column);
 

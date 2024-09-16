@@ -17,6 +17,6 @@ it('can add column', function ()
   ->toEqual("test");
 
   expect((string) $stmt)
-  ->toEqual("ALTER TABLE ADD COLUMN test");
+  ->toEqual("ALTER TABLE ADD test");
 
 });
