@@ -1,3 +1,5 @@
+### Superseded by https://github.com/MichaelRushton/php-database
+
 # What the Framework?! SQL
 This library provides a fluent interface for generating SQL statement strings.
 
